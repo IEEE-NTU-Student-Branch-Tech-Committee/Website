@@ -27,6 +27,8 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - name: Use the verified npm resolver
+        run: npm install --global npm@11.6.2
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck

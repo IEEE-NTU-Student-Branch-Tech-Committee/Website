@@ -6,7 +6,7 @@ The public website of IEEE NTU Student Branch at Nanyang Technological Universit
 
 ## Local development
 
-Requires Node.js 24 and npm.
+Requires Node.js 24 and npm 11.6.2 (also pinned in CI for reproducible lockfile resolution).
 
 ```sh
 npm ci
