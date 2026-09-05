@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+tmp/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+!.env.example
+*.log
+AGM deck.pdf
+.DS_Store
