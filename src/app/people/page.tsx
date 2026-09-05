@@ -16,13 +16,7 @@ export default function PeoplePage() {
     <>
       <PageHero
         eyebrow={`Our people / ${committeeTerm}`}
-        title={
-          <>
-            The people.
-            <br />
-            <span className="accent-text">The possibility.</span>
-          </>
-        }
+        title="Our people"
         description="Students, builders and collaborators. Meet the team bringing our community together and turning a shared vision into action."
       >
         <span className="term-badge">

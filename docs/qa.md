@@ -15,7 +15,9 @@
 
 ## Visual review and refinements
 
-Used the available Node REPL MCP with real Playwright/Chromium for browser inspection and screenshot capture. Also reviewed the Playwright matrix screenshots. Corrected the hero's intrinsic grid sizing, reviewed the light theme's contrast, tightened leadership photo crops, and checked mobile typography, project artwork, metric alignment and page spacing.
+Used the available Node REPL MCP with real Playwright/Chromium for browser inspection and screenshot capture. The September redesign replaces the long homepage with a name-led skyline, updates all routes to IEEE blue-white / adapted navy, and uses direct page headings. Reviewed the 390, 768, 1024 and 1440px matrix in both themes, including headline placement, architectural cropping, menu controls, initiative cards and leadership layouts. Mobile recomposes the Hive and Marina Bay landmarks. Corrected the community picture wrapper to occupy a single grid cell, eliminating an empty cell caused by display: contents and the source element.
+
+Homepage checks verify that its main content contains only the branch name and that architectural animation is disabled with reduced motion. Full motion is a finite entrance lasting at most 1.8 seconds, with no looping. The static production export includes the repository base path; browser route navigation, filtering and direct initiative anchors continue to work.
 
 The source portraits for Andy and Divija Jain are unsuitable for publication; initials are deliberate data-driven fallbacks. No fake portraits are present. The supplied IEEE logo is unchanged; the diamond favicon and decorative artwork are original and are not represented as official logos.
 

@@ -101,7 +101,7 @@ test('Mobile menu and keyboard navigation', async ({ page }) => {
     .getByRole('navigation', { name: 'Main navigation' })
     .getByRole('link', { name: 'Our people' })
     .click();
-  await expect(page.locator('h1')).toContainText('The people.');
+  await expect(page.locator('h1')).toHaveText('Our people');
   await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeHidden();
 });
 
@@ -116,9 +116,11 @@ test('Filters and initiative deep links work', async ({ page }) => {
   await expect(page.locator('.initiative-detail')).toHaveCount(4);
   await page.goto('./');
   await page
-    .locator('.project-card-link')
-    .filter({ has: page.getByRole('heading', { name: 'Coding Nights' }) })
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Initiatives', exact: true })
     .click();
+  await expect(page.locator('.initiative-detail')).toHaveCount(4);
+  await page.goto('initiatives/#coding-nights');
   await expect(page).toHaveURL(/initiatives\/#coding-nights$/);
   await expect(page.locator('#coding-nights')).toBeInViewport();
 });
@@ -126,6 +128,10 @@ test('Filters and initiative deep links work', async ({ page }) => {
 test('Metadata, missing content, reduced motion and 404', async ({ page, request }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('./');
+  await expect(page.locator('main')).toHaveText('IEEE NTU Student Branch');
+  expect(
+    await page.locator('.singapore-skyline').evaluate((e) => getComputedStyle(e).animationName),
+  ).toBe('none');
   expect(await page.locator('html').evaluate((e) => getComputedStyle(e).scrollBehavior)).toBe(
     'auto',
   );

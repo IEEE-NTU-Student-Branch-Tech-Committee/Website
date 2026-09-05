@@ -84,9 +84,6 @@ export function PageHero({
       <h1>{title}</h1>
       <p className="page-intro">{description}</p>
       {children}
-      <span className="page-hero-cross" aria-hidden="true">
-        +
-      </span>
     </section>
   );
 }

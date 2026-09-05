@@ -1,9 +1,15 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { navigation, siteConfig } from '@/data/site';
 import { Brand } from './brand';
 import { Icon } from './icon';
 
 export function Footer() {
+  const pathname = usePathname();
+  // The landing page is deliberately a single, quiet viewport.
+  if (pathname === '/') return null;
   const hasContact = siteConfig.contactEmail || siteConfig.socialLinks.length > 0;
   return (
     <footer className="site-footer">

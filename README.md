@@ -17,13 +17,13 @@ On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Routes
 
-| Route            | Purpose                                                                       |
-| ---------------- | ----------------------------------------------------------------------------- |
-| `/`              | Editorial homepage, impact, initiatives, community and partnership invitation |
-| `/about/`        | History, purpose, principles and public functional pillars                    |
-| `/initiatives/`  | Filterable portfolio with anchored initiative details                         |
-| `/people/`       | 2026/27 leadership and directors                                              |
-| `/partnerships/` | Four public collaboration areas and configurable contact links                |
+| Route            | Purpose                                                              |
+| ---------------- | -------------------------------------------------------------------- |
+| `/`              | Minimal name-led landing page with an original NTU/Singapore skyline |
+| `/about/`        | History, purpose, principles and public functional pillars           |
+| `/initiatives/`  | Filterable portfolio with anchored initiative details                |
+| `/people/`       | 2026/27 leadership and directors                                     |
+| `/partnerships/` | Four public collaboration areas and configurable contact links       |
 
 There is also a designed 404 page, sitemap, robots file and organisation structured data. Public contact fields and approved partner logos render only when configured. No contact form submits to an unconfigured service.
 
@@ -31,17 +31,19 @@ There is also a designed 404 page, sitemap, robots file and organisation structu
 
 Content lives separately from components:
 
-| Edit                                                                  | File                     |
-| --------------------------------------------------------------------- | ------------------------ |
-| Names, roles, portraits, groups and profiles                          | `src/data/people.ts`     |
-| Initiative names, descriptions, artwork type, optional photos/links   | `src/data/projects.ts`   |
-| AGM-reported impact metrics                                           | `src/data/metrics.ts`    |
-| Approved partner names, logos, URLs and collaboration areas           | `src/data/partners.ts`   |
-| Organisation name, committee term, public URL, email and social links | `src/data/site.ts`       |
-| Public principles and organisational functions                        | `src/data/about.ts`      |
-| Theme colours, typography, spacing, borders, radii and motion         | `src/styles/tokens.css`  |
-| Responsive layout and component styling                               | `src/styles/globals.css` |
-| Optimised local images and original social card                       | `public/images/`         |
+| Edit                                                                  | File                                   |
+| --------------------------------------------------------------------- | -------------------------------------- |
+| Names, roles, portraits, groups and profiles                          | `src/data/people.ts`                   |
+| Initiative names, descriptions, artwork type, optional photos/links   | `src/data/projects.ts`                 |
+| AGM-reported impact metrics                                           | `src/data/metrics.ts`                  |
+| Approved partner names, logos, URLs and collaboration areas           | `src/data/partners.ts`                 |
+| Organisation name, committee term, public URL, email and social links | `src/data/site.ts`                     |
+| Public principles and organisational functions                        | `src/data/about.ts`                    |
+| Theme colours, typography, spacing, borders, radii and motion         | `src/styles/tokens.css`                |
+| Responsive layout and component styling                               | `src/styles/globals.css`               |
+| Homepage composition, responsive skyline and entrance motion          | `src/styles/landing.css`               |
+| Original architectural SVG illustration                               | `src/components/singapore-skyline.tsx` |
+| Optimised local images and original social card                       | `public/images/`                       |
 
 For a person, set `portrait` to a filename in `public/images/`, or `null` to display initials. Provide clean photos around 480 × 540px in WebP. Use the documented role and group values; names are rendered only from the data array. Optional profile links can be `null`.
 
@@ -60,7 +62,9 @@ For partners, require `approved: true` and a verified logo/URL. For contact, add
 
 ## Brand and source decisions
 
-Dark navy, icy text, deliberate electric blue and original geometric drawings evolve the AGM deck into a public editorial website. Both themes share the same semantic tokens and layout. The theme respects the operating system on first visit, persists a deliberate choice, updates with system changes until a choice is saved, and initialises before first paint. Reduced motion disables transitions and smooth scrolling.
+IEEE blue (#00629B), white space and direct page headings establish a clear organisational identity. The landing page contains only the branch name: a large IEEE, a smaller NTU Student Branch, and an original architectural collage inspired by NTU's Hive/ADM and Singapore's Marina Bay. Toronto's IEEE branch inspired the diagonal, illustrated composition; UCLA and Berkeley informed the simple navigation and dedicated content pages. The shared blue-white palette follows accessible official IEEE brand references. No artwork, photographs or content were copied from those student branches.
+
+Dark mode adapts the same composition to deep navy, softer architectural lines and ice-blue accents. Both themes share semantic tokens. The theme respects the operating system on first visit, persists a deliberate choice, updates with system changes until a choice is saved, and initialises before first paint. The homepage has a short, one-time entrance; there is no continuous motion. Reduced motion disables animations, transitions and smooth scrolling. Navigation gives access to all detailed content; the landing page deliberately omits the large content sections and footer.
 
 The deck is the factual source for the founding year, public mission, four impact figures, initiative names, leadership and functions. Read `docs/content-audit.md` for page-level provenance and exclusions. Internal workflows/targets, unconfirmed lab/partner claims and all template residue are excluded. The internal PDF and extraction scratch files are deliberately outside version control.
 

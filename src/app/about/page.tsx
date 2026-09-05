@@ -19,13 +19,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About IEEE NTU"
-        title={
-          <>
-            Built on curiosity.
-            <br />
-            <span className="accent-text">Growing through connection.</span>
-          </>
-        }
+        title="About IEEE NTU"
         description="A student-run technical organisation at Nanyang Technological University, advancing innovation and education in engineering and technology since 1991."
       />
       <section className="container story-grid">

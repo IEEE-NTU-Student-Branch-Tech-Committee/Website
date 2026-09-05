@@ -11,8 +11,8 @@ export function GeometricArt({ compact = false }: { compact?: boolean }) {
             y2="440"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#447dff" stopOpacity=".75" />
-            <stop offset="1" stopColor="#114bff" stopOpacity=".08" />
+            <stop stopColor="#4198bd" stopOpacity=".75" />
+            <stop offset="1" stopColor="#00629b" stopOpacity=".08" />
           </linearGradient>
           <linearGradient
             id={compact ? 'edge-small' : 'edge'}
@@ -22,9 +22,9 @@ export function GeometricArt({ compact = false }: { compact?: boolean }) {
             y2="450"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#b7d7ff" />
-            <stop offset=".55" stopColor="#3972ff" />
-            <stop offset="1" stopColor="#114bff" stopOpacity=".35" />
+            <stop stopColor="#b8deed" />
+            <stop offset=".55" stopColor="#358cae" />
+            <stop offset="1" stopColor="#00629b" stopOpacity=".35" />
           </linearGradient>
         </defs>
         <g className="geometry-grid" stroke="currentColor" strokeWidth=".7">
@@ -55,8 +55,8 @@ export function GeometricArt({ compact = false }: { compact?: boolean }) {
           <path d="m300 115 174 101-174 101-174-101Z" fill="var(--art-fill)" fillOpacity=".16" />
           <path d="M126 216v124m348-124v124M300 317v124" opacity=".6" />
           <path d="m300 158 99 58-99 58-99-58Z" fill="var(--primary)" fillOpacity=".65" />
-          <path d="m300 179 63 37-63 37-63-37Z" stroke="#bfd8ff" />
-          <path d="m300 195 36 21-36 21-36-21Z" fill="#b7d7ff" fillOpacity=".8" stroke="none" />
+          <path d="m300 179 63 37-63 37-63-37Z" stroke="#c2e2ef" />
+          <path d="m300 195 36 21-36 21-36-21Z" fill="#b8deed" fillOpacity=".8" stroke="none" />
         </g>
         <g fill="var(--accent)">
           <circle cx="77" cy="192" r="3" />

@@ -21,13 +21,7 @@ export default function PartnershipsPage() {
     <>
       <PageHero
         eyebrow="Industry & partnerships"
-        title={
-          <>
-            Shared ambition.
-            <br />
-            <span className="accent-text">Greater possibilities.</span>
-          </>
-        }
+        title="Industry partnerships"
         description="Connect industry perspectives with student curiosity. We’re building long-term collaborations that create meaningful technical opportunities for the IEEE NTU community."
       />
       <section className="container partner-intro">

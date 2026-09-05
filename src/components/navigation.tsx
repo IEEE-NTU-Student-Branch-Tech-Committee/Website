@@ -56,9 +56,6 @@ export function Navigation() {
         </nav>
         <div className="nav-actions">
           <ThemeToggle />
-          <Link href="/initiatives/" className="nav-cta">
-            Explore initiatives <Icon name="diagonal" />
-          </Link>
           <button
             type="button"
             className="icon-button menu-toggle"

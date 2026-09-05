@@ -18,11 +18,7 @@ export default function InitiativesPage() {
     <>
       <PageHero
         eyebrow="Our initiatives"
-        title={
-          <>
-            Curiosity, <span className="accent-text">in motion.</span>
-          </>
-        }
+        title="Our initiatives"
         description="Build something. Learn something. Meet the people who make it possible. Explore the initiatives that bring our technical community together."
       />
       <InitiativePortfolio />

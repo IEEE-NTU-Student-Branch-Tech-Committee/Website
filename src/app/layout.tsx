@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import '@fontsource-variable/inter';
 import '@/styles/tokens.css';
 import '@/styles/globals.css';
+import '@/styles/landing.css';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { asset, siteConfig } from '@/data/site';
@@ -9,7 +10,7 @@ import { asset, siteConfig } from '@/data/site';
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteConfig.url}/`),
   title: {
-    default: 'IEEE NTU Student Branch — Engineering possibility',
+    default: 'IEEE NTU Student Branch',
     template: '%s | IEEE NTU Student Branch',
   },
   description: siteConfig.description,
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}/images/social-card.png`,
         width: 1200,
         height: 630,
-        alt: 'IEEE NTU Student Branch. Engineering ideas. Building communities.',
+        alt: 'IEEE NTU Student Branch — Nanyang Technological University, Singapore',
       },
     ],
   },
@@ -37,8 +38,8 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#050a16' },
-    { media: '(prefers-color-scheme: light)', color: '#f5f9fc' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b293f' },
+    { media: '(prefers-color-scheme: light)', color: '#00629b' },
   ],
 };
 
