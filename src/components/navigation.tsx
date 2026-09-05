@@ -11,8 +11,23 @@ import { Icon } from './icon';
 export function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const menuButton = useRef<HTMLButtonElement>(null);
   const header = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (pathname !== '/') return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: '-15% 0px -65% 0px' },
+    );
+    const sections = document.querySelectorAll('main > section[id]');
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
   useEffect(() => {
     function escape(event: KeyboardEvent) {
       if (event.key === 'Escape' && open) {
@@ -47,7 +62,15 @@ export function Navigation() {
             <Link
               key={item.href}
               href={item.href}
-              aria-current={pathname === item.href ? 'page' : undefined}
+              aria-current={
+                pathname === '/'
+                  ? activeSection === item.section
+                    ? 'location'
+                    : undefined
+                  : pathname === item.activePath
+                    ? 'page'
+                    : undefined
+              }
               onClick={() => setOpen(false)}
             >
               {item.label}

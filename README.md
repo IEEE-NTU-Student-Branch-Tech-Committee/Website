@@ -17,13 +17,13 @@ On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Routes
 
-| Route            | Purpose                                                              |
-| ---------------- | -------------------------------------------------------------------- |
-| `/`              | Minimal name-led landing page with an original NTU/Singapore skyline |
-| `/about/`        | History, purpose, principles and public functional pillars           |
-| `/initiatives/`  | Filterable portfolio with anchored initiative details                |
-| `/people/`       | 2026/27 leadership and directors                                     |
-| `/partnerships/` | Four public collaboration areas and configurable contact links       |
+| Route            | Purpose                                                                    |
+| ---------------- | -------------------------------------------------------------------------- |
+| `/`              | Name-led hero, About, events, team, participation and partnership sections |
+| `/about/`        | History, purpose, principles and public functional pillars                 |
+| `/initiatives/`  | Filterable portfolio with anchored initiative details                      |
+| `/people/`       | 2026/27 leadership and directors                                           |
+| `/partnerships/` | Four public collaboration areas and configurable contact links             |
 
 There is also a designed 404 page, sitemap, robots file and organisation structured data. Public contact fields and approved partner logos render only when configured. No contact form submits to an unconfigured service.
 
@@ -31,19 +31,22 @@ There is also a designed 404 page, sitemap, robots file and organisation structu
 
 Content lives separately from components:
 
-| Edit                                                                  | File                                   |
-| --------------------------------------------------------------------- | -------------------------------------- |
-| Names, roles, portraits, groups and profiles                          | `src/data/people.ts`                   |
-| Initiative names, descriptions, artwork type, optional photos/links   | `src/data/projects.ts`                 |
-| AGM-reported impact metrics                                           | `src/data/metrics.ts`                  |
-| Approved partner names, logos, URLs and collaboration areas           | `src/data/partners.ts`                 |
-| Organisation name, committee term, public URL, email and social links | `src/data/site.ts`                     |
-| Public principles and organisational functions                        | `src/data/about.ts`                    |
-| Theme colours, typography, spacing, borders, radii and motion         | `src/styles/tokens.css`                |
-| Responsive layout and component styling                               | `src/styles/globals.css`               |
-| Homepage composition, responsive skyline and entrance motion          | `src/styles/landing.css`               |
-| Original architectural SVG illustration                               | `src/components/singapore-skyline.tsx` |
-| Optimised local images and original social card                       | `public/images/`                       |
+| Edit                                                                       | File                                        |
+| -------------------------------------------------------------------------- | ------------------------------------------- |
+| Names, roles, portraits, groups and profiles                               | `src/data/people.ts`                        |
+| Initiative names, descriptions, artwork type, optional photos/links        | `src/data/projects.ts`                      |
+| AGM-reported impact metrics                                                | `src/data/metrics.ts`                       |
+| Approved partner names, logos, URLs and collaboration areas                | `src/data/partners.ts`                      |
+| Organisation name, committee term, public URL, email and social links      | `src/data/site.ts`                          |
+| Public principles and organisational functions                             | `src/data/about.ts`                         |
+| Homepage summaries, featured IDs, recruitment link and dated event archive | `src/data/home.ts`                          |
+| Theme colours, typography, spacing, borders, radii and motion              | `src/styles/tokens.css`                     |
+| Responsive layout and component styling                                    | `src/styles/globals.css`                    |
+| Homepage composition, responsive skyline and entrance motion               | `src/styles/landing.css`                    |
+| Homepage content section layout                                            | `src/styles/home.css`                       |
+| Themeable architectural illustration wrapper                               | `src/components/singapore-skyline.tsx`      |
+| Original generated architectural linework                                  | `public/images/ntu-singapore-linework.webp` |
+| Optimised local images and original social card                            | `public/images/`                            |
 
 For a person, set `portrait` to a filename in `public/images/`, or `null` to display initials. Provide clean photos around 480 × 540px in WebP. Use the documented role and group values; names are rendered only from the data array. Optional profile links can be `null`.
 
@@ -62,9 +65,11 @@ For partners, require `approved: true` and a verified logo/URL. For contact, add
 
 ## Brand and source decisions
 
-IEEE blue (#00629B), white space and direct page headings establish a clear organisational identity. The landing page contains only the branch name: a large IEEE, a smaller NTU Student Branch, and an original architectural collage inspired by NTU's Hive/ADM and Singapore's Marina Bay. Toronto's IEEE branch inspired the diagonal, illustrated composition; UCLA and Berkeley informed the simple navigation and dedicated content pages. The shared blue-white palette follows accessible official IEEE brand references. No artwork, photographs or content were copied from those student branches.
+IEEE blue (#00629B), white space and direct page headings establish the light identity. The opening screen contains only the branch name: a large IEEE, a smaller NTU Student Branch, and a continuous architectural line drawing of NTU and Singapore landmarks. The original generated illustration evokes the Chinese Heritage Centre, The Hive, Marina Bay Sands, Merlion, ArtScience Museum, Supertrees and Singapore Flyer. It is decorative rather than an accurate geographic map. See `docs/architectural-artwork.md` for the generation brief and references.
 
-Dark mode adapts the same composition to deep navy, softer architectural lines and ice-blue accents. Both themes share semantic tokens. The theme respects the operating system on first visit, persists a deliberate choice, updates with system changes until a choice is saved, and initialises before first paint. The homepage has a short, one-time entrance; there is no continuous motion. Reduced motion disables animations, transitions and smooth scrolling. Navigation gives access to all detailed content; the landing page deliberately omits the large content sections and footer.
+Dark mode restores the original #050A16 background, #0A1628 elevated surface, #114BFF emphasis and ice-blue typography. Both themes share semantic tokens. The theme follows the OS on first visit, persists a deliberate choice, and initialises before first paint. A short entrance plays once; reduced motion disables it.
+
+Toronto's IEEE branch now informs both the illustrated hero and the content flow below it: About, Events, Our team, Join us and Partnerships, with Contact shown only when verified details exist. Header links navigate to homepage sections, while the team and detailed organisation/initiative pages remain available. The current section is identified as you scroll. No content, event dates, sponsors, contacts or artwork from Toronto are republished. `pastEvents` and `recruitmentUrl` are empty until verified records exist; no unfinished section or inactive signup is displayed.
 
 The deck is the factual source for the founding year, public mission, four impact figures, initiative names, leadership and functions. Read `docs/content-audit.md` for page-level provenance and exclusions. Internal workflows/targets, unconfirmed lab/partner claims and all template residue are excluded. The internal PDF and extraction scratch files are deliberately outside version control.
 

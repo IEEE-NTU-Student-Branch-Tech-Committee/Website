@@ -99,9 +99,17 @@ test('Mobile menu and keyboard navigation', async ({ page }) => {
   await menu.click();
   await page
     .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Our people' })
+    .getByRole('link', { name: 'Our team' })
     .click();
   await expect(page.locator('h1')).toHaveText('Our people');
+  await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeHidden();
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Events', exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/#events$/);
+  await expect(page.locator('#events')).toBeInViewport();
   await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeHidden();
 });
 
@@ -117,10 +125,14 @@ test('Filters and initiative deep links work', async ({ page }) => {
   await page.goto('./');
   await page
     .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Initiatives', exact: true })
+    .getByRole('link', { name: 'Events', exact: true })
     .click();
-  await expect(page.locator('.initiative-detail')).toHaveCount(4);
-  await page.goto('initiatives/#coding-nights');
+  await expect(page).toHaveURL(/#events$/);
+  await expect(page.locator('#events')).toBeInViewport();
+  await page
+    .locator('.project-card-link')
+    .filter({ has: page.getByRole('heading', { name: 'Coding Nights' }) })
+    .click();
   await expect(page).toHaveURL(/initiatives\/#coding-nights$/);
   await expect(page.locator('#coding-nights')).toBeInViewport();
 });
@@ -128,7 +140,7 @@ test('Filters and initiative deep links work', async ({ page }) => {
 test('Metadata, missing content, reduced motion and 404', async ({ page, request }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('./');
-  await expect(page.locator('main')).toHaveText('IEEE NTU Student Branch');
+  await expect(page.locator('.home-landing')).toHaveText('IEEE NTU Student Branch');
   expect(
     await page.locator('.singapore-skyline').evaluate((e) => getComputedStyle(e).animationName),
   ).toBe('none');
@@ -149,6 +161,7 @@ test('Metadata, missing content, reduced motion and 404', async ({ page, request
   expect((await request.get('sitemap.xml')).status()).toBe(200);
   expect((await request.get('robots.txt')).status()).toBe(200);
   expect((await request.get('images/social-card.png')).status()).toBe(200);
+  expect((await request.get('images/ntu-singapore-linework.webp')).status()).toBe(200);
   const response = await page.goto('not-a-page/');
   expect(response?.status()).toBe(404);
   await expect(page.getByRole('link', { name: 'Back to home' })).toBeVisible();

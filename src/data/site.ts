@@ -14,12 +14,16 @@ export const siteConfig = {
   socialLinks: [] as { label: string; url: string }[],
 };
 
-export const navigation = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Initiatives', href: '/initiatives/' },
-  { label: 'Our people', href: '/people/' },
-  { label: 'Partnerships', href: '/partnerships/' },
+type NavigationItem = { label: string; href: string; section?: string; activePath?: string };
+export const navigation: NavigationItem[] = [
+  { label: 'About', href: '/#about', section: 'about', activePath: '/about/' },
+  { label: 'Our team', href: '/people/', section: 'team', activePath: '/people/' },
+  { label: 'Events', href: '/#events', section: 'events', activePath: '/initiatives/' },
+  { label: 'Join us', href: '/#join-us', section: 'join-us' },
+  { label: 'Partnerships', href: '/#partners', section: 'partners', activePath: '/partnerships/' },
+  ...(siteConfig.contactEmail || siteConfig.socialLinks.length
+    ? [{ label: 'Contact', href: '/#contact', section: 'contact' }]
+    : []),
 ];
 
 export function asset(path: string) {

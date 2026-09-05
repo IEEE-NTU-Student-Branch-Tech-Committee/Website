@@ -24,7 +24,11 @@ export default function PeoplePage() {
           Committee {committeeTerm}
         </span>
       </PageHero>
-      <section className="container people-section">
+      <nav className="container team-jump-links" aria-label="Committee sections">
+        <a href="#leadership">Branch leadership</a>
+        <a href="#directors">Directors</a>
+      </nav>
+      <section id="leadership" className="container people-section">
         <SectionHeading eyebrow="Setting our direction" title="Branch leadership" />
         <div className="people-grid leadership-grid">
           {people
@@ -34,7 +38,7 @@ export default function PeoplePage() {
             ))}
         </div>
       </section>
-      <section className="container people-section section-space">
+      <section id="directors" className="container people-section section-space">
         <SectionHeading
           eyebrow="Making it happen"
           title="Our directors"

@@ -3,6 +3,7 @@ import '@fontsource-variable/inter';
 import '@/styles/tokens.css';
 import '@/styles/globals.css';
 import '@/styles/landing.css';
+import '@/styles/home.css';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { asset, siteConfig } from '@/data/site';
@@ -38,7 +39,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0b293f' },
+    { media: '(prefers-color-scheme: dark)', color: '#050a16' },
     { media: '(prefers-color-scheme: light)', color: '#00629b' },
   ],
 };

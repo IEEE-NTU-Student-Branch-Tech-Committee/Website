@@ -1,0 +1,343 @@
+/* The first screen stays quiet. The sections below provide clear ways into the branch. */
+.home-section {
+  padding-block: clamp(64px, 6.5vw, 96px);
+  scroll-margin-top: 24px;
+}
+.home-section h2 {
+  letter-spacing: -0.045em;
+}
+.home-about {
+  background: var(--primary-soft);
+}
+.home-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: center;
+  gap: 72px;
+}
+.home-about-grid .eyebrow {
+  font-size: 10px;
+}
+.home-about-grid > div > p:not(.eyebrow) {
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.85;
+}
+.home-about-grid > div > .home-about-lead {
+  color: var(--text-primary);
+  font-size: 21px;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+.home-about-grid .button-row {
+  margin-top: 24px;
+  gap: 26px;
+}
+.home-about-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.home-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.home-events .project-art {
+  height: 230px;
+}
+.home-events .art-word {
+  font-size: clamp(40px, 3.5vw, 53px);
+}
+.home-events .small-art-word {
+  font-size: clamp(31px, 2.8vw, 42px);
+}
+.home-events .code-lines {
+  font-size: 12px;
+  left: 7%;
+}
+.home-events .code-lines b {
+  width: 26px;
+}
+.home-events .project-card-body {
+  padding: 24px;
+}
+.home-events .project-card h3 {
+  font-size: 25px;
+}
+.home-team {
+  background: var(--surface-soft);
+  border-block: 1px solid var(--border);
+}
+.home-team-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  align-items: center;
+  gap: 72px;
+}
+.home-team-copy > p:not(.eyebrow) {
+  margin-top: 20px;
+  font-size: 15px;
+  max-width: 350px;
+}
+.home-team-copy .button {
+  margin-top: 28px;
+}
+.home-team-people {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.home-team-people .person-info h3 {
+  font-size: 19px;
+}
+.home-team-people .person-info p {
+  font-size: 12px;
+}
+.home-join-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.home-join-grid article {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--surface);
+}
+.home-join-grid article + article {
+  border-left: 1px solid var(--border);
+}
+.home-join-grid article > svg {
+  width: 30px;
+  height: 30px;
+  color: var(--accent);
+  margin-bottom: 30px;
+}
+.home-join-grid h3 {
+  font-size: 24px;
+}
+.home-join-grid p {
+  margin-block: 17px 22px;
+  font-size: 14px;
+}
+.home-join-grid .text-link {
+  margin-top: auto;
+  color: var(--accent);
+}
+.recruitment-link {
+  margin-top: 28px;
+}
+.home-partners {
+  background: var(--primary-soft);
+}
+.home-partners-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+.home-partners-heading p:not(.eyebrow) {
+  margin-top: 20px;
+  font-size: 15px;
+  max-width: 590px;
+}
+.home-partners-heading .button {
+  flex-shrink: 0;
+}
+.home-partners .partner-logos {
+  margin-top: 48px;
+}
+.event-archive {
+  margin-top: 56px;
+}
+.event-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 28px;
+}
+.event-archive-grid img {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.event-archive-grid time {
+  display: block;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.event-archive-grid h4 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+@media (max-width: 1199px) {
+  .home-about-grid,
+  .home-team-grid {
+    gap: 40px;
+  }
+  .home-team-grid {
+    grid-template-columns: 0.8fr 1.5fr;
+  }
+  .home-events-grid,
+  .home-team-people {
+    gap: 18px;
+  }
+  .home-events .project-art {
+    height: 200px;
+  }
+  .home-events .code-lines {
+    font-size: 10px;
+  }
+  .home-events .code-lines b {
+    width: 20px;
+  }
+  .home-events .project-card h3 {
+    font-size: 23px;
+  }
+  .home-events .project-card-body {
+    padding: 20px;
+  }
+  .home-join-grid article {
+    padding: 28px;
+  }
+  .home-team-people .person-info h3 {
+    font-size: 17px;
+  }
+}
+@media (max-width: 899px) {
+  .home-about-grid,
+  .home-team-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-about-grid img {
+    aspect-ratio: 5 / 3;
+  }
+  .home-events-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .home-events .project-card-link {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-events .project-art {
+    height: 100%;
+    min-height: 265px;
+  }
+  .home-events .project-card-body {
+    padding: 28px;
+  }
+  .home-events .code-lines {
+    font-size: 12px;
+  }
+  .home-join-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-join-grid article {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    column-gap: 24px;
+    padding: 32px;
+  }
+  .home-join-grid article + article {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .home-join-grid article > svg {
+    grid-row: 1 / 4;
+    margin-bottom: 0;
+  }
+  .home-join-grid p {
+    margin-block: 12px;
+  }
+  .home-partners-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .event-archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 599px) {
+  .home-about-grid > div > .home-about-lead {
+    font-size: 20px;
+  }
+  .home-about-grid > div > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+  .home-about-grid .button-row {
+    gap: 16px;
+  }
+  .home-about-grid .text-link {
+    font-size: 12px;
+    gap: 10px;
+  }
+  .home-events .project-card-link {
+    display: block;
+  }
+  .home-events .project-art {
+    height: 190px;
+    min-height: 190px;
+  }
+  .home-events .project-card-body {
+    padding: 22px;
+  }
+  .home-events .project-card h3 {
+    font-size: 26px;
+  }
+  .home-events .art-word {
+    font-size: 46px;
+  }
+  .home-events .small-art-word {
+    font-size: 36px;
+  }
+  .home-team-people {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .home-team-people .person-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 22px;
+  }
+  .home-team-people .person-info {
+    padding: 0;
+  }
+  .home-team-people .person-info h3 {
+    font-size: 19px;
+  }
+  .home-team-people .person-portfolio {
+    display: none;
+  }
+  .home-join-grid article {
+    grid-template-columns: 26px 1fr;
+    padding: 26px 22px;
+    column-gap: 18px;
+  }
+  .home-join-grid article > svg {
+    width: 24px;
+    height: 24px;
+  }
+  .home-join-grid h3 {
+    font-size: 21px;
+  }
+  .home-join-grid p {
+    font-size: 13px;
+  }
+  .home-join-grid .text-link {
+    font-size: 12px;
+  }
+  .event-archive-grid {
+    grid-template-columns: 1fr;
+  }
+}

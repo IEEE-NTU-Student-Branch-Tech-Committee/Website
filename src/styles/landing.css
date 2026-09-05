@@ -1,4 +1,4 @@
-/* An original Singapore architectural collage with a typographic focal point. */
+/* A continuous architectural panorama beneath the branch name. */
 .home-landing {
   position: relative;
   isolation: isolate;
@@ -46,35 +46,15 @@
 .singapore-skyline {
   position: absolute;
   z-index: 1;
-  width: 100%;
-  min-width: 1100px;
-  max-height: 76%;
+  width: calc(100% - 32px);
+  min-width: 1000px;
+  max-height: 72%;
   height: auto;
   left: 50%;
-  bottom: 0;
+  bottom: 30px;
   transform: translateX(-50%);
   pointer-events: none;
-  stroke: var(--skyline-stroke);
   animation: skyline-arrive 1800ms var(--ease) both;
-}
-.skyline-distant {
-  opacity: 0.3;
-}
-.skyline-detail {
-  opacity: 0.46;
-}
-.skyline-building {
-  fill: var(--skyline-fill);
-}
-.skyline-roof {
-  fill: var(--skyline-roof);
-}
-.skyline-water {
-  opacity: 0.45;
-}
-.skyline-flyer,
-.skyline-grove {
-  opacity: 0.75;
 }
 @keyframes title-arrive {
   from {
@@ -139,9 +119,9 @@
     margin-top: 24px;
   }
   .singapore-skyline {
-    width: 130%;
-    min-width: 1000px;
-    left: 51%;
+    width: 115%;
+    min-width: 900px;
+    left: 50%;
   }
 }
 @media (max-width: 599px) {
@@ -168,28 +148,11 @@
     margin-top: 22px;
   }
   .singapore-skyline {
-    width: 940px;
-    min-width: 940px;
+    width: 640px;
+    min-width: 640px;
     max-height: none;
-    left: 44%;
-    bottom: 8px;
-  }
-  /* Bring the two major landmarks into the narrow composition. */
-  .skyline-hive {
-    transform: translate(490px, 20px) scale(0.88);
-  }
-  .skyline-marina {
-    transform: translate(188px, 150px) scale(0.68);
-  }
-  .skyline-museum {
-    transform: translate(5px, 38px) scale(0.92);
-  }
-  .skyline-distant {
-    opacity: 0.16;
-  }
-  .skyline-grove,
-  .skyline-flyer {
-    display: none;
+    left: 42%;
+    bottom: 60px;
   }
 }
 @media (max-height: 650px) and (min-width: 900px) {
