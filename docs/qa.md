@@ -19,7 +19,7 @@ Used the available Node REPL MCP with real Playwright/Chromium for browser inspe
 
 Homepage checks verify that its opening hero contains only the branch name and that architectural animation is disabled with reduced motion. The sections below it follow About, Events, Team, Get involved and Partnerships. Header section links and project detail links work with the repository base path. The final WebP illustration is checked as a served asset and visually inspected through its SVG luminance mask in both themes. Full motion is a finite entrance lasting at most 1.8 seconds, with no looping. Dated events, recruitment and contacts stay hidden while their data is unavailable.
 
-The source portraits for Andy and Divija Jain are unsuitable for publication; initials are deliberate data-driven fallbacks. No fake portraits are present. The supplied IEEE logo is unchanged; the diamond favicon and decorative artwork are original and are not represented as official logos.
+The 6 September portrait update uses the revised deck's photo and full name for Xizhe Zhang, previously labelled Andy. Divija Jain's headshot is cropped to exclude the source's recruitment frame. All 13 members now have real source portraits; the data model retains its initials fallback for future missing photos. The supplied IEEE logo is unchanged; the diamond favicon and decorative artwork are original and are not represented as official logos.
 
 ## Platform detail
 

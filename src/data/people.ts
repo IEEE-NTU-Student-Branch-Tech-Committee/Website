@@ -11,7 +11,7 @@ export type Person = {
 };
 
 export const committeeTerm = siteConfig.term;
-// Name/role mapping: AGM pp.6–7. Image filenames correspond to verified PDF image objects.
+// Name/role mapping: AGM pp.6–7. Divija and Xizhe portraits verified in AGM deck (1).pdf.
 export const people: Person[] = [
   {
     id: 'unnav-sharma',
@@ -67,14 +67,13 @@ export const people: Person[] = [
     portrait: 'maanya-malhotra.webp',
     profileUrl: null,
   },
-  // TODO: Clean original portrait; the deck photo includes a recruitment badge.
   {
     id: 'divija-jain',
     name: 'Divija Jain',
     role: 'Business Director',
     group: 'Directors',
     portfolio: 'Business Development',
-    portrait: null,
+    portrait: 'divija-jain.webp',
     profileUrl: null,
   },
   {
@@ -104,14 +103,13 @@ export const people: Person[] = [
     portrait: 'chuhan-mei.webp',
     profileUrl: null,
   },
-  // TODO: The p.7 portrait duplicates Saba Azad's image; obtain Andy's verified portrait/full name.
   {
-    id: 'andy',
-    name: 'Andy',
+    id: 'xizhe-zhang',
+    name: 'Xizhe Zhang',
     role: 'Logistics Director',
     group: 'Directors',
     portfolio: 'Logistics',
-    portrait: null,
+    portrait: 'xizhe-zhang.webp',
     profileUrl: null,
   },
   {

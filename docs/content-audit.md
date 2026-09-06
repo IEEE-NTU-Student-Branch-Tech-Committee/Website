@@ -2,6 +2,8 @@
 
 Source: supplied `AGM deck.pdf`, AGM 2026/27, 22 pages. The source PDF stays outside the repository because it contains internal planning material.
 
+Portrait update, 6 September 2026: reviewed office-bearer pages 6–7 in the revised `AGM deck (1).pdf` (23 pages). Page 7 now names the logistics director **Xizhe Zhang**, replacing the previous **Andy** label, and supplies his own photograph (image object 1235). Page 6 supplies Divija Jain's photo (object 2439); the website uses a headshot crop that excludes its recruitment frame. These two 480 × 540 WebP assets complete the current 13-member portrait set. No other content was imported from the revised deck in this update. The table and exclusions below describe the original content audit.
+
 | Source       | Public use                                                                                                                                                                               |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | p.3          | Organisation name, established 1991, engineering/technology/education mission, annual iNTUition, IEEE Day, workshops/seminars; real community photo                                      |
@@ -17,7 +19,7 @@ Source: supplied `AGM deck.pdf`, AGM 2026/27, 22 pages. The source PDF stays out
 - Pages 8, 12–14, 16–17: reporting lines, internal roadmap phases, company targets, outreach/account assignment procedures, pipelines, financial goals, talent allocation, submission workflows and unfinished text are excluded.
 - IEEE Labs and ecosystem logos on p.11 lack enough public detail/approval. No live lab, approved partner or endorsement is asserted.
 - No public contact address, social URL, sign-up form, event dates, client names, sponsor logos or project completion claims were supplied.
-- The p.7 photo labelled Andy duplicates the p.6 Saba Azad portrait. Andy receives an initials avatar. Divija Jain's supplied portrait has an embedded recruitment badge; use an initials avatar until a clean original is supplied.
+- The original p.7 photo labelled Andy duplicated Saba Azad's portrait, and Divija Jain's photo included a recruitment badge. Both initially used initials; the 6 September update above replaces these fallbacks with verified source photographs.
 - Other leadership photos are extracted directly from the PDF image objects, without slide backgrounds or watermarks. Preserve name/role mapping to the actual slides.
 - The p.3 group photo is labelled as IEEE NTU community, without assigning it to an event whose identity is not certain.
 - The official IEEE masterbrand is extracted from p.1 without redrawing or recolouring. No NTU crest is used.

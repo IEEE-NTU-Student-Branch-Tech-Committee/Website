@@ -8,5 +8,5 @@ playwright-report/
 .env*
 !.env.example
 *.log
-AGM deck.pdf
+AGM*.pdf
 .DS_Store

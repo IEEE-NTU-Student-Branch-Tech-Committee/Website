@@ -57,7 +57,7 @@ For partners, require `approved: true` and a verified logo/URL. For contact, add
 ### Assets still needed
 
 - Approved public contact email and social profiles.
-- Andy’s verified portrait/full name, and a clean original portrait of Divija Jain without an embedded recruitment badge.
+- An uncropped original portrait of Divija Jain would allow a wider composition; her current headshot excludes the source photo's recruitment frame. All 13 current members now have real portraits.
 - Higher-resolution original event/committee photographs where available.
 - Confirmed partner identities and approved logo artwork.
 - Verified initiative registration links, dates and public project details when ready.
@@ -109,4 +109,4 @@ Stop an existing preview server before changing its base path.
 
 ## Optional asset maintenance scripts
 
-`scripts/extract-assets.py` regenerates curated source assets from `../AGM deck.pdf` using PyMuPDF/Pillow; it is a one-time tool, never part of the build. `scripts/create-social-card.mjs` regenerates the original OpenGraph PNG with Sharp. The generated public assets are checked in, so future builds do not need the PDF, Python or external font downloads.
+`scripts/extract-assets.py` regenerates the initial curated assets from `../AGM deck.pdf` using PyMuPDF/Pillow. `scripts/extract-updated-portraits.py` extracts Divija Jain and Xizhe Zhang from `../AGM deck (1).pdf`; the revised page 7 also supplies the logistics director's full name. These are optional maintenance tools, never part of the build. `scripts/create-social-card.mjs` regenerates the original OpenGraph PNG with Sharp. The generated public assets are checked in, so future builds do not need the PDF, Python or external font downloads.
