@@ -2,7 +2,9 @@
 
 The public website of IEEE NTU Student Branch at Nanyang Technological University. Built with Next.js App Router, TypeScript, self-hosted Inter Variable and a custom semantic CSS design system. Statically exported for GitHub Pages.
 
-**Website:** https://dasbootu9607.github.io/IEEE-NTU-Student-Branch-Website/
+**Website:** https://ieee-ntu-student-branch-tech-committee.github.io/Website/
+
+**Repository:** https://github.com/IEEE-NTU-Student-Branch-Tech-Committee/Website
 
 ## Local development
 
@@ -98,7 +100,7 @@ The workflow explicitly sets the repository base path and canonical site URL. If
 To locally verify the deployment base path in PowerShell:
 
 ```powershell
-$env:NEXT_PUBLIC_BASE_PATH='/IEEE-NTU-Student-Branch-Website'
+$env:NEXT_PUBLIC_BASE_PATH='/Website'
 npm.cmd run build
 npm.cmd test
 ```

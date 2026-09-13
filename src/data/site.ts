@@ -7,7 +7,7 @@ export const siteConfig = {
     'A student-run engineering and technology community at Nanyang Technological University. Explore our hackathon, technical initiatives, people and industry collaborations.',
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://dasbootu9607.github.io/IEEE-NTU-Student-Branch-Website',
+    'https://ieee-ntu-student-branch-tech-committee.github.io/Website',
   // TODO: Supply a verified public inbox and approved social URLs. Empty values are never displayed.
   contactEmail: null as string | null,
   partnershipEmail: null as string | null,
