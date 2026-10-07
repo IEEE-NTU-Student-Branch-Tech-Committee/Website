@@ -5,9 +5,7 @@ export const siteConfig = {
   term: '2026/27',
   description:
     'A student-run engineering and technology community at Nanyang Technological University. Explore our hackathon, technical initiatives, people and industry collaborations.',
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://ieee-ntu-student-branch-tech-committee.github.io/Website',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://ieeentu.com',
   contactEmail: 'IEEENTU-Branch@e.ntu.edu.sg' as string | null,
   partnershipEmail: null as string | null,
   socialLinks: [

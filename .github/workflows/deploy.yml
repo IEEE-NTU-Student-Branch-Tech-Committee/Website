@@ -18,8 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: /Website
-      NEXT_PUBLIC_SITE_URL: https://ieee-ntu-student-branch-tech-committee.github.io/Website
+      NEXT_PUBLIC_BASE_PATH: ''
+      NEXT_PUBLIC_SITE_URL: https://ieeentu.com
       NEXT_TELEMETRY_DISABLED: 1
     steps:
       - uses: actions/checkout@v4

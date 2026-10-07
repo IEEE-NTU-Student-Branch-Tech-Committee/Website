@@ -2,7 +2,7 @@
 
 Official student branch website at Nanyang Technological University. Next.js App Router, TypeScript, local Roboto Condensed and Source Sans Pro, and a static export for GitHub Pages.
 
-Website: https://ieee-ntu-student-branch-tech-committee.github.io/Website/
+Website: https://ieeentu.com/
 
 ## Development
 
@@ -56,22 +56,25 @@ npm run preview
 
 Browser tests cover all five pages at 320, 390, 768, 1024 and 1440px, in both themes; axe checks, image decoding, overflow, browser errors, theme persistence, keyboard navigation, mobile menu, filters, deep links, metadata, 404 and public links. Screenshots are in `test-results/`; open the report with `npx playwright show-report`.
 
-To check the actual GitHub Pages path in PowerShell:
+To check the production root path and domain metadata in PowerShell:
 
 ```powershell
-$env:NEXT_PUBLIC_BASE_PATH='/Website'
+$env:NEXT_PUBLIC_BASE_PATH=''
+$env:NEXT_PUBLIC_SITE_URL='https://ieeentu.com'
 npm.cmd run build
 npm.cmd test
 npm.cmd run preview
 ```
 
-Preview: http://127.0.0.1:4173/Website/. Stop an existing preview before changing its base path. Format source with `npx prettier --write src tests scripts/*.mjs`.
+Preview: http://127.0.0.1:4173/. Stop an existing preview before changing its base path. Format source with `npx prettier --write src tests scripts/*.mjs`.
 
 ## Deployment
 
 The existing `.github/workflows/deploy.yml` checks a push to `main`, runs browser QA and deploys the verified export to GitHub Pages. Pull requests run checks without deployment. Repository Pages settings must use GitHub Actions.
 
-The workflow supplies `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL`. Update them and the fallback URL in `src/data/site.ts` if the repository URL or domain changes. Internal Next.js links and `asset()` handle the base path.
+The workflow supplies an empty `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL=https://ieeentu.com`. Pages serves this custom domain at the root. Update these and the fallback URL in `src/data/site.ts` if the domain changes. Internal Next.js links and `asset()` handle an optional base path.
+
+GitHub Pages settings bind the apex domain `ieeentu.com`. Cloudflare DNS uses four apex A records (`185.199.108.153` through `185.199.111.153`) and a `www` CNAME pointing directly to `ieee-ntu-student-branch-tech-committee.github.io`, all DNS only. Retain the Pages verification TXT record. GitHub issues the certificate after DNS becomes valid; enable Enforce HTTPS when it is available. This Actions deployment does not require a CNAME file in the export.
 
 `postbuild` normalises [Next.js Windows static-export issue #92339](https://github.com/vercel/next.js/issues/92339) by adding the segment-cache filenames expected by the browser. It affects only `out/` and is a no-op on correctly generated Linux builds.
 

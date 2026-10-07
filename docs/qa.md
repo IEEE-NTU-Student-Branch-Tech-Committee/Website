@@ -3,12 +3,12 @@
 ## Final checks
 
 - ESLint, TypeScript and the Next.js production static export pass.
-- 15 Playwright tests pass against the actual GitHub Pages base path, `/Website`.
+- 15 Playwright tests pass at the custom domain's root path, with `https://ieeentu.com` as the production site URL.
 - All five content routes are checked at 320, 390, 768, 1024 and 1440px in light and dark modes: 50 page/theme/viewport combinations.
 - axe WCAG 2 A/AA and 2.1 A/AA scans report zero violations in those combinations. Scans accompany visual and keyboard review.
 - No horizontal document overflow, page errors or browser console errors; every public image decodes successfully.
 - Theme persistence, following OS preference, blocked storage, skip link, mobile menu, Escape/focus return and keyboard navigation pass.
-- Initiative filters, homepage anchors, project deep links, canonical/OG tags, sitemap, robots, official favicon and custom 404 pass.
+- Initiative filters, homepage anchors, project deep links, canonical/OG tags, sitemap, robots, official favicon and custom 404 pass. Canonical links on all five routes and the sitemap/robots destinations use the custom domain; exported pages have no `/Website/` resource paths.
 - All nine sponsor/partner identities have linked logo artwork, including Jane Street and Crator. The two unidentified marks are excluded.
 - Instagram, LinkedIn, GitHub and NTU Women in Tech destinations are checked on all five routes.
 - The provided branch email is a working mail link in the homepage contact section, partnerships page and every footer.
@@ -42,3 +42,5 @@ All pages, fonts, photographs, logo assets and favicons are served from the stat
 The existing postbuild step corrects Windows segment-cache filenames for [Next.js issue #92339](https://github.com/vercel/next.js/issues/92339). Browser navigation is verified using the corrected export.
 
 The existing GitHub Pages workflow validates pushes to `main` and publishes the checked static artifact. Deployment status and the exact published commit are recorded in the repository's Actions history.
+
+Custom domain: `ieeentu.com`, verified for the IEEE NTU organisation and configured in the repository's Pages settings. The build uses an empty base path and `https://ieeentu.com` for metadata. Cloudflare DNS and GitHub certificate provisioning are checked separately from the static build; HTTPS is enforced after the certificate is available.

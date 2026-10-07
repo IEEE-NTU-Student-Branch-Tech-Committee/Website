@@ -167,8 +167,14 @@ test('Metadata, missing content, reduced motion and 404', async ({ page, request
   if (!siteConfig.contactEmail) {
     await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
   }
-  expect((await request.get('sitemap.xml')).status()).toBe(200);
-  expect((await request.get('robots.txt')).status()).toBe(200);
+  const sitemap = await request.get('sitemap.xml');
+  expect(sitemap.status()).toBe(200);
+  const sitemapContent = await sitemap.text();
+  for (const route of routes)
+    expect(sitemapContent).toContain(`<loc>${siteConfig.url}/${route}</loc>`);
+  const robots = await request.get('robots.txt');
+  expect(robots.status()).toBe(200);
+  expect(await robots.text()).toContain(`Sitemap: ${siteConfig.url}/sitemap.xml`);
   expect((await request.get('images/social-card.png')).status()).toBe(200);
   expect((await request.get('images/ntu-singapore-linework.webp')).status()).toBe(200);
   expect((await request.get('favicon.ico')).status()).toBe(200);
@@ -176,6 +182,16 @@ test('Metadata, missing content, reduced motion and 404', async ({ page, request
     'href',
     /\/favicon\.png$/,
   );
+  for (const route of routes) {
+    await page.goto(route || './');
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      `${siteConfig.url}/${route}`,
+    );
+    for (const attribute of ['src', 'href']) {
+      await expect(page.locator(`[${attribute}^="/Website/"]`)).toHaveCount(0);
+    }
+  }
   const response = await page.goto('not-a-page/');
   expect(response?.status()).toBe(404);
   await expect(page.getByRole('link', { name: 'Back to home' })).toBeVisible();
