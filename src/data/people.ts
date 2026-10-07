@@ -118,7 +118,7 @@ export const people: Person[] = [
     role: 'Marketing Director',
     group: 'Directors',
     portfolio: 'Marketing',
-    portrait: 'khushi-modi.webp',
+    portrait: 'khushi-modi-2026.webp',
     profileUrl: null,
   },
   {

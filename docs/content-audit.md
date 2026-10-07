@@ -41,4 +41,5 @@ The black four-petal mark and coloured lowercase m on p.11 were not identified. 
 - General community photographs retain general alternative text. The IEEE Day entry uses a campus photograph rather than assigning an unverified group photograph to that event.
 - The copied logos preserve original artwork. Only low-opacity export boundary noise is removed from the IEEE masterbrand before favicon preparation.
 - The two revised portraits for Divija Jain and Xizhe Zhang remain correctly mapped. Xizhe Zhang is the public full name; Andy is an alias in the source.
+- Khushi Modi's portrait now uses the current PDF's photograph on pages 7 and 19. The source on page 7 is image xref 138 at 720×960px; crop (180, 270, 570, 710) is resized to 480×540px without retouching. The filename `khushi-modi-2026.webp` avoids retaining the previous portrait in browser image caches.
 - The homepage retains the existing decorative local architectural line drawing; initiative geometry and geometric fallback blocks are removed from the rendered site.
