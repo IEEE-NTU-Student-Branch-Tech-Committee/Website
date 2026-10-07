@@ -8,7 +8,7 @@ export const siteConfig = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
     'https://ieee-ntu-student-branch-tech-committee.github.io/Website',
-  contactEmail: null as string | null,
+  contactEmail: 'IEEENTU-Branch@e.ntu.edu.sg' as string | null,
   partnershipEmail: null as string | null,
   socialLinks: [
     {

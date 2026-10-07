@@ -8,7 +8,7 @@ import { siteConfig } from '@/data/site';
 export const metadata: Metadata = {
   title: 'Events & Initiatives',
   description:
-    'Explore iNTUition, Coding Nights, IEEE Day, industry projects and technical workshops at IEEE NTU Student Branch.',
+    'Explore iNTUition, Coding Nights, IEEE Day, our Annual General Meeting, industry projects and technical workshops at IEEE NTU Student Branch.',
   alternates: { canonical: `${siteConfig.url}/initiatives/` },
 };
 

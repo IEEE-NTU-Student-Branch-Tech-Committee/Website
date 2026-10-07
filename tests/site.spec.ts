@@ -121,9 +121,10 @@ test('Filters and initiative deep links work', async ({ page }) => {
   await expect(page.locator('.initiative-detail')).toHaveCount(1);
   await expect(page.locator('.initiative-detail h2')).toHaveText('Industry Projects');
   await page.getByRole('button', { name: 'Community', exact: true }).click();
-  await expect(page.locator('.initiative-detail')).toHaveCount(2);
+  await expect(page.locator('.initiative-detail')).toHaveCount(3);
+  await expect(page.locator('#annual-general-meeting')).toBeVisible();
   await page.getByRole('button', { name: 'All initiatives' }).click();
-  await expect(page.locator('.initiative-detail')).toHaveCount(4);
+  await expect(page.locator('.initiative-detail')).toHaveCount(5);
   await page.goto('./');
   await page
     .getByRole('navigation', { name: 'Main navigation' })
@@ -137,6 +138,11 @@ test('Filters and initiative deep links work', async ({ page }) => {
     .click();
   await expect(page).toHaveURL(/initiatives\/#coding-nights$/);
   await expect(page.locator('#coding-nights')).toBeInViewport();
+  await page.goto('./');
+  await page.getByRole('link', { name: 'About the AGM', exact: true }).click();
+  await expect(page).toHaveURL(/initiatives\/#annual-general-meeting$/);
+  await expect(page.locator('#annual-general-meeting')).toBeInViewport();
+  await expect(page.locator('#annual-general-meeting')).toContainText('new and returning members');
 });
 
 test('Metadata, missing content, reduced motion and 404', async ({ page, request }) => {
@@ -181,23 +187,33 @@ test('Public sponsors, social profiles and friend club are linked without intern
   for (const route of routes) {
     await page.goto(route || './');
     await expect(page.locator('body')).not.toContainText(
-      /\bAGM\b|built based on|Lorem ipsum|Coming soon/i,
+      /AGM deck|AGM-reported|built based on|based on the AGM|Lorem ipsum|Coming soon/i,
     );
     await expect(
       page.locator('a[href*="chat.whatsapp.com"], a[href$=".pdf"], img[src*="qr-code"]'),
     ).toHaveCount(0);
     const footer = page.locator('footer');
+    await expect(footer.locator('a[href="mailto:IEEENTU-Branch@e.ntu.edu.sg"]')).toBeVisible();
+    await expect(footer.locator('a[href="mailto:IEEENTU-Branch@e.ntu.edu.sg"]')).toContainText(
+      'IEEENTU-Branch@e.ntu.edu.sg',
+    );
     for (const social of siteConfig.socialLinks) {
       await expect(footer.locator(`a[href="${social.url}"]`)).toBeVisible();
     }
     await expect(footer.locator('a[href="https://www.ntuwit.com/"]')).toBeVisible();
     if (route === '' || route === 'partnerships/') {
-      await expect(page.locator('.partner-logos li')).toHaveCount(8);
+      await expect(page.locator('.partner-logos li')).toHaveCount(9);
+      await expect(
+        page.locator('.partner-logos a[href="https://www.cratorlabs.ai/erpnext"]'),
+      ).toBeVisible();
       for (const partner of partners) {
         const link = page.locator(`.partner-logos a[href="${partner.url}"]`);
         await expect(link).toHaveAttribute('target', '_blank');
         await expect(link.locator('img')).toHaveAttribute('alt', partner.name);
       }
+    }
+    if (route === '' || route === 'partnerships/') {
+      await expect(page.locator('main a[href="mailto:IEEENTU-Branch@e.ntu.edu.sg"]')).toBeVisible();
     }
   }
 });

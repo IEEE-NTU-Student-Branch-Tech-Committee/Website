@@ -6,13 +6,20 @@ export type Partner = {
   wide?: boolean;
 };
 
-// Jane Street is confirmed by the branch. Seven other identities appear on
+// Jane Street and Crator are confirmed sponsors. Seven other identities appear on
 // source slide 11. Two unconfirmed marks are excluded at the branch's request.
 export const partners: Partner[] = [
   {
     name: 'Jane Street',
     logo: '/images/partners/jane-street.svg',
     url: 'https://www.janestreet.com/',
+    kind: 'Sponsor',
+    wide: true,
+  },
+  {
+    name: 'Crator',
+    logo: '/images/partners/crator.svg',
+    url: 'https://www.cratorlabs.ai/erpnext',
     kind: 'Sponsor',
     wide: true,
   },

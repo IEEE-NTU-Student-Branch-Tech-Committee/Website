@@ -44,7 +44,11 @@ export function InitiativePortfolio() {
       </div>
       <div className="initiative-list">
         {visible.map((project) => (
-          <article key={project.slug} id={project.slug} className="initiative-detail">
+          <article
+            key={project.slug}
+            id={project.slug}
+            className={`initiative-detail${project.image ? '' : ' initiative-detail-text'}`}
+          >
             <ProjectArtwork project={project} />
             <div className="initiative-detail-copy">
               <p className="initiative-category">{project.category}</p>

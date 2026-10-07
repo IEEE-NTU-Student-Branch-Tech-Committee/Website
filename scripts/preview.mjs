@@ -13,6 +13,8 @@ const types = {
   '.png': 'image/png',
   '.ico': 'image/x-icon',
   '.webp': 'image/webp',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
   '.woff2': 'font/woff2',
   '.xml': 'application/xml',
   '.txt': 'text/plain',

@@ -339,6 +339,12 @@ main:focus {
 .project-art img {
   object-fit: cover;
 }
+.project-art-contain {
+  background: #fff;
+}
+.project-art-contain img {
+  object-fit: contain;
+}
 .project-card {
   min-width: 0;
 }
@@ -510,7 +516,7 @@ main:focus {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px 28px;
 }
 .partner-logo-link {
@@ -681,6 +687,12 @@ main:focus {
 .initiative-detail .project-art {
   aspect-ratio: 4 / 3;
 }
+.initiative-detail-text {
+  grid-template-columns: 1fr;
+}
+.initiative-detail-text .initiative-detail-copy {
+  max-width: 800px;
+}
 .initiative-detail-copy h2 {
   margin-block: 8px 20px;
   font-size: 36px;
@@ -713,6 +725,43 @@ main:focus {
 }
 
 /* Social links and the public footer. */
+.contact-email-row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 32px;
+}
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  min-height: 44px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.contact-email > svg {
+  width: 22px;
+  height: 22px;
+}
+.contact-email > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.contact-email:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.contact-email-compact {
+  font-size: 16px;
+  margin-top: 8px;
+  padding-block: 8px;
+  align-items: flex-start;
+}
+.site-footer .contact-email {
+  color: #fff;
+}
 .social-links {
   padding: 0;
   margin: 0;
@@ -1022,6 +1071,18 @@ main:focus {
   .partner-logos {
     grid-template-columns: 1fr 1fr;
     gap: 30px 18px;
+  }
+  .partner-logos > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .partner-logos > li:last-child:nth-child(odd) .partner-logo-image {
+    max-width: 170px;
+  }
+  .contact-email {
+    font-size: 18px;
+  }
+  .contact-email-compact {
+    font-size: 16px;
   }
   .partner-logo-image {
     height: 100px;

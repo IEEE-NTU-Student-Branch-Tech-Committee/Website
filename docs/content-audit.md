@@ -17,6 +17,12 @@ Current factual source: supplied `AGM deck (2).pdf`, 24 pages, for 2026/27. Sour
 
 The branch explicitly confirmed Jane Street as a sponsor and requested its inclusion. Its original horizontal logo is from [Jane Street's website](https://www.janestreet.com/), linked directly to that site.
 
+The branch also confirmed Crator as a sponsor. Its original logo is from [Crator's website](https://www.cratorlabs.ai/erpnext), and the linked logo uses that exact destination.
+
+The branch supplied the public email `IEEENTU-Branch@e.ntu.edu.sg`, displayed as a mail link in the homepage contact section, footer and partnerships page. The Annual General Meeting entry reflects the branch's description of its annual member welcome, outgoing/incoming committee handover and planning for the new academic year. This public event name is separate from attribution to the internal source document.
+
+The branch-provided `coding night.JPG` and `intuition.HEIC` replace the earlier event photos. Optimised copies retain the event subjects while trimming empty ceiling space. The supplied `industry.jpg` is copied without changes and uses contained rendering to preserve every logo. It illustrates the developing programme rather than adding those companies to the sponsor list.
+
 The branch supplied these public destinations:
 
 - [Instagram](https://www.instagram.com/ieee_ntu/)
@@ -24,7 +30,7 @@ The branch supplied these public destinations:
 - [Technology Committee GitHub](https://github.com/IEEE-NTU-Student-Branch-Tech-Committee)
 - [NTU Women in Tech](https://www.ntuwit.com/) as a friend club
 
-The black four-petal mark and coloured lowercase m on p.11 were not identified. The branch asked to ignore them for now. They are neither displayed nor shipped as public assets. Eight recognised sponsor/partner identities are shown, each with a direct official link.
+The black four-petal mark and coloured lowercase m on p.11 were not identified. The branch asked to ignore them for now. They are neither displayed nor shipped as public assets. Nine recognised sponsor/partner identities are shown, each with a direct official link.
 
 ## Privacy and factual boundaries
 

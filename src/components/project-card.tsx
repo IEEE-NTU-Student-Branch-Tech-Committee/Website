@@ -6,7 +6,7 @@ import { asset } from '@/data/site';
 export function ProjectArtwork({ project }: { project: Project }) {
   if (!project.image) return null;
   return (
-    <div className="project-art">
+    <div className={`project-art${project.imageFit === 'contain' ? ' project-art-contain' : ''}`}>
       <Image
         src={asset(project.image)}
         alt={project.imageAlt}

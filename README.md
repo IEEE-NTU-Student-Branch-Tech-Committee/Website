@@ -21,13 +21,15 @@ npm run dev
 | /about/        | History, objectives, four committees and Strategy Office                                                    |
 | /initiatives/  | Filterable initiative directory with direct section links                                                   |
 | /people/       | All 13 leaders and directors for 2026/27                                                                    |
-| /partnerships/ | Eight linked sponsor/partner logos, collaboration areas and public contact channels                         |
+| /partnerships/ | Nine linked sponsor/partner logos, collaboration areas and public contact channels                          |
 
 A custom 404, canonical URLs, share image, sitemap, robots file and organisation structured data are included.
 
 Edit factual content in `src/data/`: `people.ts` for names, roles and portraits; `projects.ts` for initiatives and photographs; `metrics.ts` for community figures; `partners.ts` for logo artwork, URLs and collaboration areas; `site.ts` for navigation, social profiles, friends and site URL; `about.ts` and `home.ts` for public copy.
 
-Partner logos link directly to official websites. Jane Street is a confirmed sponsor; the seven other recognised organisations are listed alongside it as ecosystem partners. The two unidentified source marks are omitted as requested by the branch. Public profiles are Instagram, LinkedIn and the Technology Committee's GitHub. NTU Women in Tech is listed under Friends.
+Partner logos link directly to official websites. Jane Street and Crator are confirmed sponsors; seven other recognised organisations are listed alongside them as ecosystem partners. The two unidentified source marks are omitted as requested by the branch. Public profiles are Instagram, LinkedIn and the Technology Committee's GitHub. NTU Women in Tech is listed under Friends.
+
+The public contact email is `IEEENTU-Branch@e.ntu.edu.sg`. The Annual General Meeting entry describes the yearly welcome, committee handover and planning activities. Coding Nights and iNTUition use photographs supplied by the branch; Industry Projects uses the supplied `industry.jpg`, displayed without cropping its logos.
 
 The internal source PDF and its QR codes must stay outside `public/`. Do not add internal group invitations, unconfirmed event dates, registration forms or contact addresses. Industry Projects describes work being developed. General community and campus photographs must not be presented as evidence of a specific event.
 
@@ -79,6 +81,7 @@ The checked-in assets keep ordinary builds independent of Python, source PDFs an
 
 - `scripts/extract-current-assets.py`: reviewed public logo/photo allowlist from `../AGM deck (2).pdf`; excludes internal QR pages.
 - `scripts/prepare-public-assets.py`: local webfonts/licences, selected event/campus photographs and official diamond favicons. Requires requests, PyMuPDF and Pillow.
+- `scripts/prepare-event-assets.py`: optimises the branch-provided Coding Nights and iNTUition photos and copies `industry.jpg`. Requires Pillow and FFmpeg; original inputs are not needed for ordinary builds.
 - `scripts/create-social-card.mjs`: renders the share image with the same local fonts through Playwright.
 - Older portrait extraction scripts retain the original source mappings for the 13 current members.
 

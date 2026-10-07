@@ -9,14 +9,16 @@
 - No horizontal document overflow, page errors or browser console errors; every public image decodes successfully.
 - Theme persistence, following OS preference, blocked storage, skip link, mobile menu, Escape/focus return and keyboard navigation pass.
 - Initiative filters, homepage anchors, project deep links, canonical/OG tags, sitemap, robots, official favicon and custom 404 pass.
-- All eight sponsor/partner identities have linked logo artwork. Jane Street is included. The two unidentified marks are excluded.
+- All nine sponsor/partner identities have linked logo artwork, including Jane Street and Crator. The two unidentified marks are excluded.
 - Instagram, LinkedIn, GitHub and NTU Women in Tech destinations are checked on all five routes.
+- The provided branch email is a working mail link in the homepage contact section, partnerships page and every footer.
+- Annual General Meeting appears on the homepage and in the Community filter; its direct section link works. Coding Nights and iNTUition use the newly supplied photos, and Industry Projects displays the supplied image with every logo visible.
 - Public pages and the exported HTML contain no AGM attribution, internal WhatsApp invitations, source PDF links or unfinished production copy.
 - Public asset extraction uses an explicit reviewed image allowlist. Internal QR pages 22–23 are excluded entirely.
 
 ## Visual review
 
-Reviewed homepage, team, initiatives and sponsor pages in both themes. The local fonts match the reference families and intended weights. Team portraits, logo visibility, photo identity, header contrast, focus and mobile stacking were inspected in rendered screenshots.
+Reviewed homepage, team, initiatives and sponsor pages in both themes. The local fonts match the reference families and intended weights. Team portraits, logo visibility, photo identity, header contrast, focus and mobile stacking were inspected in rendered screenshots. The event update also includes section-level review at 320 and 1440px, covering the AGM, Crator, supplied images and email layout.
 
 Additional browser review covers seven boundary widths (320, 360, 899, 900, 1199, 1200 and 1920px), all five routes and both themes: 70 layouts with no document overflow. Six homepage cases at 1366×768, 1440×700 and 1920×600, in both themes, also pass axe scans.
 
@@ -30,6 +32,8 @@ Refinements from review:
 - The share image uses the same local fonts, weights and blue-white palette.
 
 Matrix screenshots and the Playwright report are in ignored `test-results/` and `playwright-report/`. Additional review screenshots and data are in ignored `tmp/final-review/`.
+
+The updated event and contact section screenshots are in ignored `tmp/event-update-review/`. The email sits with the branch identity in the footer so it has adequate width on small screens.
 
 ## Build and deployment
 

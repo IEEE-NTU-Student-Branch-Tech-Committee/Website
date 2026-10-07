@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/ui';
 import { PartnerLogos } from '@/components/partner-logos';
 import { SocialLinks } from '@/components/social-links';
+import { ContactEmail } from '@/components/contact-email';
 import { partnershipAreas } from '@/data/partners';
 import { siteConfig } from '@/data/site';
 
@@ -52,11 +53,14 @@ export default function PartnershipsPage() {
           <div className="centered-heading">
             <h2>Get in Touch</h2>
             <p>
-              For sponsorships, workshops or technical collaboration, reach our branch through
-              Instagram or LinkedIn.
+              For sponsorships, workshops or technical collaboration, email our branch or connect
+              with us through Instagram or LinkedIn.
             </p>
           </div>
           <SocialLinks detailed />
+          <div className="contact-email-row">
+            <ContactEmail />
+          </div>
         </div>
       </section>
     </>

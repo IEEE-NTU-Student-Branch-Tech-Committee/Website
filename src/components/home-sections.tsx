@@ -8,6 +8,7 @@ import { PersonCard } from './person-card';
 import { ProjectCard } from './project-card';
 import { PartnerLogos } from './partner-logos';
 import { SocialLinks } from './social-links';
+import { ContactEmail } from './contact-email';
 import { TextLink } from './ui';
 
 export function HomeAbout() {
@@ -40,6 +41,7 @@ export function HomeAbout() {
 }
 
 export function HomeEvents() {
+  const annualMeeting = projects.find((project) => project.slug === 'annual-general-meeting');
   const featured = homeContent.featuredProjectSlugs.flatMap((slug) =>
     projects.filter((project) => project.slug === slug),
   );
@@ -55,6 +57,15 @@ export function HomeEvents() {
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
+        {annualMeeting && (
+          <article className="home-annual-meeting">
+            <div>
+              <h3>{annualMeeting.name}</h3>
+              <p>{annualMeeting.description}</p>
+            </div>
+            <TextLink href={`/initiatives/#${annualMeeting.slug}`}>About the AGM</TextLink>
+          </article>
+        )}
         <div className="section-link">
           <TextLink href="/initiatives/">All our initiatives</TextLink>
         </div>
@@ -138,6 +149,9 @@ export function HomePartnerships() {
             <p>Get in touch and stay connected with IEEE NTU.</p>
           </div>
           <SocialLinks detailed />
+          <div className="contact-email-row">
+            <ContactEmail />
+          </div>
           <p className="contact-location">Nanyang Technological University · Singapore</p>
         </div>
       </section>

@@ -44,6 +44,25 @@
 .home-events .centered-heading {
   margin-bottom: 40px;
 }
+.home-annual-meeting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  padding-top: 32px;
+  margin-top: 40px;
+}
+.home-annual-meeting h3 {
+  font-size: 28px;
+}
+.home-annual-meeting p {
+  margin-top: 14px;
+  max-width: 800px;
+}
+.home-annual-meeting .text-link {
+  flex-shrink: 0;
+}
 .home-team-people {
   display: flex;
   flex-wrap: wrap;
@@ -70,7 +89,8 @@
 }
 .home-contact h2,
 .home-contact p,
-.home-contact .social-links a {
+.home-contact .social-links a,
+.home-contact .contact-email {
   color: #fff;
 }
 .home-contact :focus-visible {
@@ -88,6 +108,11 @@
   }
   .home-events-grid {
     gap: 22px;
+  }
+  .home-annual-meeting {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
   .home-events .project-card h3 {
     font-size: 25px;

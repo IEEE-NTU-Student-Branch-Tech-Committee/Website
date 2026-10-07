@@ -3,6 +3,7 @@ import { navigation, siteConfig } from '@/data/site';
 import { Brand } from './brand';
 import { SocialLinks } from './social-links';
 import { Icon } from './icon';
+import { ContactEmail } from './contact-email';
 
 export function Footer() {
   return (
@@ -16,6 +17,7 @@ export function Footer() {
               <br />
               Singapore
             </p>
+            <ContactEmail compact />
           </div>
           <nav aria-label="Footer navigation">
             <h2>Explore</h2>
