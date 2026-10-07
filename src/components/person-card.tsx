@@ -22,14 +22,12 @@ export function PersonCard({ person }: { person: Person }) {
                 .map((n) => n[0])
                 .join('')}
             </span>
-            <div className="fallback-diamond" />
           </div>
         )}
-        <span className="person-portfolio">{person.portfolio}</span>
       </div>
       <div className="person-info">
-        <h3>{person.name}</h3>
         <p>{person.role}</p>
+        <h3>{person.name}</h3>
         {person.profileUrl && (
           <a href={person.profileUrl} className="text-link">
             View profile<span className="sr-only"> of {person.name}</span>

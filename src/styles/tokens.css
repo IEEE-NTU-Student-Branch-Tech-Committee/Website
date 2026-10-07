@@ -2,87 +2,60 @@
   color-scheme: light;
   --background: #ffffff;
   --background-elevated: #ffffff;
-  --surface: #ffffff;
-  --surface-soft: #f2f5f7;
-  --primary: #00629b;
-  --primary-hover: #004c78;
-  --primary-soft: #eaf3f8;
-  --accent: #00629b;
-  --ice: #e5f4fa;
-  --text-primary: #253746;
-  --text-secondary: #566673;
-  --border: rgba(37, 55, 70, 0.14);
-  --border-strong: rgba(37, 55, 70, 0.28);
-  --grid: rgba(0, 98, 155, 0.06);
-  --glow: rgba(0, 98, 155, 0.04);
-  --nav: #00629b;
-  --shadow: 0 12px 36px -24px rgba(0, 40, 85, 0.2);
-  --art-stroke: #6aa7c6;
-  --art-fill: #d8eaf4;
-  --art-intuition: linear-gradient(130deg, #00629b, #004976);
-  --art-coding: linear-gradient(115deg, #002855, #103d58);
-  --art-industry: linear-gradient(125deg, #164d68, #002855);
-  --art-ieee: linear-gradient(115deg, #005b86, #002855);
-  --art-avatar: linear-gradient(130deg, #174d68, #002855);
-  --hero-background: #00629b;
+  --surface-soft: #dbeaf6;
+  --primary: #00639c;
+  --primary-hover: #004f7d;
+  --primary-soft: #dbeaf6;
+  --accent: #00639c;
+  --heading-color: #00639c;
+  --text-primary: #333333;
+  --text-secondary: #4c4c4c;
+  --border: #d5e0e8;
+  --border-strong: #a0b4c3;
+  --nav: #ffffff;
+  --nav-text: #00639c;
+  --hero-background: #00639c;
   --hero-plane: #ffffff;
-  --skyline-stroke: #a3c6dc;
+  --skyline-stroke: #a3ccdf;
+  --events-background: #00639c;
+  --footer-background: #00639c;
+  --font-sans: var(--font-body), 'Source Sans Pro', Arial, sans-serif;
+  --font-title: var(--font-heading), 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+  --container: 1200px;
+  --gutter: clamp(22px, 4.2vw, 64px);
+  --section-space: clamp(64px, 6vw, 88px);
   --header-height: 88px;
-  --font-sans: 'Inter Variable', Arial, Helvetica, sans-serif;
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  --container: 1280px;
-  --gutter: clamp(24px, 4.45vw, 64px);
-  --section-space: clamp(72px, 8.35vw, 120px);
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --radius-sm: 4px;
-  --radius: 8px;
-  --radius-lg: 12px;
-  --blur: 18px;
-  --duration: 220ms;
-  --ease: cubic-bezier(0.2, 0.65, 0.3, 1);
+  --duration: 180ms;
 }
-
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --background: #050a16;
-  --background-elevated: #0a1628;
-  --surface: rgba(16, 35, 59, 0.58);
-  --surface-soft: #0d1d33;
-  --primary: #114bff;
-  --primary-hover: #3163ff;
-  --primary-soft: rgba(17, 75, 255, 0.14);
-  --accent: #80adff;
-  --text-primary: #eef9ff;
-  --text-secondary: #a4b5c9;
-  --border: rgba(220, 245, 255, 0.13);
-  --border-strong: rgba(220, 245, 255, 0.25);
-  --grid: rgba(158, 197, 255, 0.075);
-  --glow: rgba(17, 75, 255, 0.19);
-  --nav: #050a16;
-  --shadow: 0 20px 65px -35px rgba(0, 0, 0, 0.65);
-  --art-stroke: #6593ff;
-  --art-fill: #133879;
-  --art-intuition: radial-gradient(
-    ellipse at 75% 20%,
-    #285cdd 0,
-    #153b92 28%,
-    #0d2050 67%,
-    #101a32 100%
-  );
-  --art-coding: linear-gradient(115deg, #0c1c30, #0f253c);
-  --art-industry: radial-gradient(ellipse at 90% 50%, #193658, #0a162b 75%);
-  --art-ieee: radial-gradient(ellipse at 90% 30%, #16387b, #0a1a3b 70%);
-  --art-avatar: radial-gradient(ellipse at 80% 20%, #1b3870, #0c1b31 80%);
-  --hero-background: #050a16;
-  --hero-plane: #0a1628;
-  --skyline-stroke: #7796c3;
+  --background: #07081a;
+  --background-elevated: #091a2f;
+  --surface-soft: #091a2f;
+  --primary: #0038ff;
+  --primary-hover: #234fff;
+  --primary-soft: #091a2f;
+  --accent: #add5e3;
+  --heading-color: #add5e3;
+  --text-primary: #f3f8fb;
+  --text-secondary: #bacfdc;
+  --border: #29364b;
+  --border-strong: #55657d;
+  --nav: #07081a;
+  --nav-text: #add5e3;
+  --hero-background: #07081a;
+  --hero-plane: #091a2f;
+  --skyline-stroke: #add5e3;
+  --events-background: #091a2f;
+  --footer-background: #091a2f;
 }
-
-/* Breakpoint contract: 600px compact, 900px tablet/nav, 1200px wide. */
+@media (max-width: 899px) {
+  :root {
+    --header-height: 76px;
+  }
+}
+@media (max-width: 599px) {
+  :root {
+    --header-height: 72px;
+  }
+}

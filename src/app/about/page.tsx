@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
-import { CommunityPhoto } from '@/components/community-photo';
-import { PageHero, Eyebrow, SectionHeading, TextLink } from '@/components/ui';
+import Image from 'next/image';
+import { PageHero, TextLink } from '@/components/ui';
 import { Metrics } from '@/components/metrics';
-import { Icon } from '@/components/icon';
 import { PartnershipCTA } from '@/components/partnership-cta';
-import { principles, pillars } from '@/data/about';
-import { siteConfig } from '@/data/site';
+import { principles, pillars, strategy } from '@/data/about';
+import { asset, siteConfig } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Us',
   description:
-    'Since 1991, IEEE NTU Student Branch has connected students through engineering, technology, innovation and community.',
+    'Learn about IEEE NTU Student Branch, our community and our committees at Nanyang Technological University.',
   alternates: { canonical: `${siteConfig.url}/about/` },
 };
 
@@ -19,83 +18,67 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About IEEE NTU"
-        title="About IEEE NTU"
-        description="A student-run technical organisation at Nanyang Technological University, advancing innovation and education in engineering and technology since 1991."
+        title="About Us"
+        description="Advancing student learning in engineering and technology since 1991."
       />
-      <section className="container story-grid">
-        <div className="history-panel">
-          <Eyebrow>A continuing story</Eyebrow>
-          <span className="history-year">1991</span>
+      <section className="container about-story">
+        <Image
+          src={asset('/images/ntu-campus.webp')}
+          alt="The Hive at Nanyang Technological University"
+          width={1600}
+          height={960}
+          sizes="(max-width: 899px) 90vw, 45vw"
+        />
+        <div>
+          <h2>IEEE at Nanyang Technological University</h2>
           <p>
-            The start of a community.
-            <br />A foundation for what comes next.
-          </p>
-          <div className="history-lines" aria-hidden="true" />
-        </div>
-        <div className="story-copy">
-          <h2>
-            Ideas grow when
-            <br />
-            people come together.
-          </h2>
-          <p>
-            IEEE NTU Student Branch brings together students who want to explore technology and put
-            their ideas into practice. Our community connects aspiring technologists through
-            hackathons, technical workshops, seminars and shared experiences.
+            Established in 1991, IEEE NTU Student Branch brings together students with a shared
+            interest in engineering and technology. Our flagship initiatives include iNTUition, our
+            annual hackathon, and IEEE Day, alongside Coding Nights, technical workshops and
+            seminars.
           </p>
           <p>
-            We’re building on that foundation with a growing focus on project-based opportunities
-            and meaningful, long-term industry collaboration.
+            We help students develop practical skills, explore new ideas and build connections with
+            peers and industry. Our growing focus on collaborative projects creates opportunities to
+            apply those skills beyond the classroom.
           </p>
-          <TextLink href="/initiatives/">See our ideas in action</TextLink>
+          <TextLink href="/initiatives/">Explore our initiatives</TextLink>
         </div>
       </section>
       <section className="container section-space">
-        <SectionHeading eyebrow="Our direction" title="Space to explore. Support to grow." />
-        <div className="principles-grid">
-          {principles.map((p) => (
-            <article key={p.title} className="principle">
-              <span className="mono accent-text">{p.number}</span>
-              <h3>
-                {p.title}
-                <span aria-hidden="true">.</span>
-              </h3>
-              <p>{p.description}</p>
+        <div className="centered-heading">
+          <h2>Our Objectives</h2>
+          <p>Supporting our members and strengthening our technical community.</p>
+        </div>
+        <div className="objectives-list">
+          {principles.map((principle) => (
+            <article key={principle.title}>
+              <h3>{principle.title}</h3>
+              <p>{principle.description}</p>
             </article>
           ))}
         </div>
       </section>
       <Metrics />
       <section className="container section-space">
-        <SectionHeading
-          eyebrow="How we come together"
-          title="A shared mission. Different strengths."
-          description="Five areas of work support our technical initiatives and the people around them."
-        />
-        <div className="about-pillars">
-          {pillars.map((p, i) => (
-            <article key={p.title}>
-              <span className="mono">0{i + 1}</span>
-              <Icon name={p.icon} />
-              <h3>{p.title}</h3>
-              <p>{p.description}</p>
+        <div className="centered-heading">
+          <h2>How We Work</h2>
+          <p>Four committees support our events, projects and community.</p>
+        </div>
+        <div className="committee-functions">
+          {pillars.map((pillar) => (
+            <article key={pillar.title}>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.description}</p>
             </article>
           ))}
         </div>
-      </section>
-      <section className="container about-community">
-        <CommunityPhoto
-          alt="The IEEE NTU community gathered at an event"
-          sizes="(max-width: 600px) 90vw, 45vw"
-        />
-        <div>
-          <Eyebrow>The heart of our branch</Eyebrow>
-          <h2>
-            Made possible
-            <br />
-            by our people.
-          </h2>
-          <TextLink href="/people/">Meet the team</TextLink>
+        <div className="strategy-office">
+          <h3>{strategy.title}</h3>
+          <p>{strategy.description}</p>
+        </div>
+        <div className="section-link">
+          <TextLink href="/people/">Meet our committee</TextLink>
         </div>
       </section>
       <PartnershipCTA />

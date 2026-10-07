@@ -4,8 +4,8 @@ export function Metrics() {
   return (
     <section className="metrics-section container" aria-label="Our impact">
       <div className="metrics-context">
-        <span className="eyebrow">A community with impact</span>
-        <span>As reported in our 2026/27 AGM</span>
+        <h2>Our Community in Numbers</h2>
+        <p>Highlights from our events and community.</p>
       </div>
       <dl className="metrics-grid">
         {metrics.map((metric) => (

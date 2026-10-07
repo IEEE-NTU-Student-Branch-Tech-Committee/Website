@@ -1,19 +1,34 @@
-import sharp from 'sharp';
+import { readFile } from 'node:fs/promises';
+import { chromium } from '@playwright/test';
 
-// Match the current homepage using its original generated architectural asset.
-// librsvg embeds PNG reliably across platforms; the site itself serves WebP.
-const drawing = (
-  await sharp('public/images/ntu-singapore-linework.webp').png().toBuffer()
-).toString('base64');
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<defs><mask id="city" maskUnits="userSpaceOnUse" x="12" y="256" width="1176" height="392" style="mask-type:luminance">
-<image href="data:image/png;base64,${drawing}" x="12" y="256" width="1176" height="392"/>
-</mask></defs>
-<rect width="1200" height="630" fill="#00629b"/>
-<path d="M0 0H540L0 630Z" fill="#fff"/>
-<rect x="12" y="256" width="1176" height="392" fill="#a3c6dc" mask="url(#city)"/>
-<g font-family="Arial, Helvetica, sans-serif" fill="#fff">
-<text x="610" y="214" font-size="170" font-weight="bold" letter-spacing="-10">IEEE</text>
-<text x="618" y="274" font-size="37" letter-spacing="-1">NTU Student Branch</text>
-</g></svg>`;
-await sharp(Buffer.from(svg)).png().toFile('public/images/social-card.png');
+// Render with the site's own local fonts so the share image matches the homepage.
+const encoded = async (file) => (await readFile(file)).toString('base64');
+const [heading, body, bodyRegular, drawing] = await Promise.all([
+  encoded('src/fonts/roboto-condensed-700.woff2'),
+  encoded('src/fonts/source-sans-pro-700.woff2'),
+  encoded('src/fonts/source-sans-pro-400.woff2'),
+  encoded('public/images/ntu-singapore-linework.webp'),
+]);
+const browser = await chromium.launch();
+try {
+  const page = await browser.newPage({
+    viewport: { width: 1200, height: 630 },
+    deviceScaleFactor: 1,
+  });
+  await page.setContent(`<!doctype html><html lang="en"><head><style>
+  @font-face { font-family: Heading; src: url(data:font/woff2;base64,${heading}); font-weight: 100 900; }
+  @font-face { font-family: Body; src: url(data:font/woff2;base64,${body}); font-weight: 700; }
+  @font-face { font-family: Body; src: url(data:font/woff2;base64,${bodyRegular}); font-weight: 400; }
+  * { box-sizing: border-box; } body { margin: 0; background: #00639c; color: white; }
+  .plane { position: absolute; inset: 0; background: white; clip-path: polygon(0 0, 50% 0, 0 92%); }
+  h1 { position: absolute; top: 40px; right: 94px; margin: 0; text-align: right; }
+  .ieee { display: block; font: 700 156px/1 Heading; }
+  .branch { display: block; font: 700 34px/1.3 Body; margin-top: 12px; }
+  .university { display: block; font: 400 18px/1.5 Body; margin-top: 10px; }
+  .skyline { position: absolute; left: 12px; bottom: 20px; width: 1176px; height: 392px; background: #a3ccdf; mask: url(data:image/webp;base64,${drawing}) center/contain no-repeat; mask-mode: luminance; }
+  </style></head><body><div class="plane"></div><div class="skyline"></div><h1><span class="ieee">IEEE</span><span class="branch">NTU Student Branch</span><span class="university">Nanyang Technological University</span></h1></body></html>`);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: 'public/images/social-card.png' });
+} finally {
+  await browser.close();
+}

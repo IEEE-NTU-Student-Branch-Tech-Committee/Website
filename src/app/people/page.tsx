@@ -1,57 +1,84 @@
 import type { Metadata } from 'next';
-import { PageHero, SectionHeading } from '@/components/ui';
+import { PageHero } from '@/components/ui';
 import { PersonCard } from '@/components/person-card';
 import { PartnershipCTA } from '@/components/partnership-cta';
 import { people, committeeTerm } from '@/data/people';
 import { siteConfig } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Our People',
+  title: 'Our Team',
   description: `Meet the ${committeeTerm} leadership and directors of IEEE NTU Student Branch.`,
   alternates: { canonical: `${siteConfig.url}/people/` },
 };
+
+const departments = [
+  {
+    id: 'leadership',
+    title: 'Branch Leadership',
+    members: people.filter((person) => person.group === 'Leadership'),
+  },
+  {
+    id: 'business-development',
+    title: 'Business Development',
+    members: people.filter(
+      (person) => person.group === 'Directors' && person.portfolio === 'Business Development',
+    ),
+  },
+  {
+    id: 'technology',
+    title: 'Technology',
+    members: people.filter(
+      (person) => person.group === 'Directors' && person.portfolio === 'Technology',
+    ),
+  },
+  {
+    id: 'logistics',
+    title: 'Logistics',
+    members: people.filter(
+      (person) => person.group === 'Directors' && person.portfolio === 'Logistics',
+    ),
+  },
+  {
+    id: 'marketing',
+    title: 'Marketing',
+    members: people.filter(
+      (person) => person.group === 'Directors' && person.portfolio === 'Marketing',
+    ),
+  },
+];
 
 export default function PeoplePage() {
   return (
     <>
       <PageHero
-        eyebrow={`Our people / ${committeeTerm}`}
-        title="Our people"
-        description="Students, builders and collaborators. Meet the team bringing our community together and turning a shared vision into action."
-      >
-        <span className="term-badge">
-          <span className="live-dot" />
-          Committee {committeeTerm}
-        </span>
-      </PageHero>
+        eyebrow="Our committee"
+        title="Our Team"
+        description={`The ${committeeTerm} committee of IEEE NTU Student Branch.`}
+      />
       <nav className="container team-jump-links" aria-label="Committee sections">
-        <a href="#leadership">Branch leadership</a>
-        <a href="#directors">Directors</a>
+        {departments.map((department) => (
+          <a key={department.id} href={`#${department.id}`}>
+            {department.title}
+          </a>
+        ))}
       </nav>
-      <section id="leadership" className="container people-section">
-        <SectionHeading eyebrow="Setting our direction" title="Branch leadership" />
-        <div className="people-grid leadership-grid">
-          {people
-            .filter((p) => p.group === 'Leadership')
-            .map((p) => (
-              <PersonCard key={p.id} person={p} />
-            ))}
-        </div>
-      </section>
-      <section id="directors" className="container people-section section-space">
-        <SectionHeading
-          eyebrow="Making it happen"
-          title="Our directors"
-          description="The teams behind our technology, partnerships, community and operations."
-        />
-        <div className="people-grid">
-          {people
-            .filter((p) => p.group === 'Directors')
-            .map((p) => (
-              <PersonCard key={p.id} person={p} />
-            ))}
-        </div>
-      </section>
+      <div className="container team-directory">
+        {departments.map((department) => (
+          <section
+            id={department.id}
+            className="people-section"
+            key={department.id}
+            aria-labelledby={`${department.id}-heading`}
+          >
+            <h2 id={`${department.id}-heading`}>{department.title}</h2>
+            <div className="people-grid">
+              {department.members.map((person) => (
+                <PersonCard key={person.id} person={person} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
       <PartnershipCTA />
     </>
   );

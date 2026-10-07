@@ -11,9 +11,16 @@ import { Icon } from './icon';
 export function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const menuButton = useRef<HTMLButtonElement>(null);
   const header = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const syncScroll = () => setScrolled(window.scrollY > 24);
+    syncScroll();
+    window.addEventListener('scroll', syncScroll, { passive: true });
+    return () => window.removeEventListener('scroll', syncScroll);
+  }, []);
   useEffect(() => {
     if (pathname !== '/') return;
     const observer = new IntersectionObserver(
@@ -50,7 +57,10 @@ export function Navigation() {
     };
   }, [open]);
   return (
-    <header className="site-header" ref={header}>
+    <header
+      className={`site-header${pathname === '/' && !scrolled ? ' site-header-home' : ''}`}
+      ref={header}
+    >
       <div className="nav-inner container">
         <Brand />
         <nav

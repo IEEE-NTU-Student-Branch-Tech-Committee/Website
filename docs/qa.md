@@ -1,30 +1,40 @@
-# Release QA — 5 September 2026
+# Release QA — 7 October 2026
 
-## Verified implementation
+## Final checks
 
-- Next.js 16.3.4 production static export, TypeScript and ESLint pass.
-- 12 Playwright tests pass against the static website, including the exact GitHub Pages repository base path.
-- All five content routes checked at 390, 768, 1024 and 1440px, in dark and light modes: 40 page/theme/viewport combinations.
-- axe WCAG 2 A/AA and 2.1 A/AA scans report zero violations in those 40 combinations. Automated scans supplement visual and keyboard inspection; they are not a formal accessibility certification.
-- Zero page errors, failed asset requests or browser console errors on the tested content routes.
-- No horizontal document overflow; all images decode successfully, including lazy images and mobile community-image sources.
-- Theme follows the OS initially, persists a chosen preference across pages/reloads, tracks OS changes without a stored preference, and works when localStorage is blocked.
-- Skip link, mobile menu, Escape-to-close/focus return, route navigation, initiative filtering and project anchor links pass.
-- Reduced motion, canonical/OG tags, sitemap, robots, unavailable-contact omission and custom 404 pass.
-- The source PDF, template imagery, scratch renders, dependencies and build output are excluded from Git.
+- ESLint, TypeScript and the Next.js production static export pass.
+- 15 Playwright tests pass against the actual GitHub Pages base path, `/Website`.
+- All five content routes are checked at 320, 390, 768, 1024 and 1440px in light and dark modes: 50 page/theme/viewport combinations.
+- axe WCAG 2 A/AA and 2.1 A/AA scans report zero violations in those combinations. Scans accompany visual and keyboard review.
+- No horizontal document overflow, page errors or browser console errors; every public image decodes successfully.
+- Theme persistence, following OS preference, blocked storage, skip link, mobile menu, Escape/focus return and keyboard navigation pass.
+- Initiative filters, homepage anchors, project deep links, canonical/OG tags, sitemap, robots, official favicon and custom 404 pass.
+- All eight sponsor/partner identities have linked logo artwork. Jane Street is included. The two unidentified marks are excluded.
+- Instagram, LinkedIn, GitHub and NTU Women in Tech destinations are checked on all five routes.
+- Public pages and the exported HTML contain no AGM attribution, internal WhatsApp invitations, source PDF links or unfinished production copy.
+- Public asset extraction uses an explicit reviewed image allowlist. Internal QR pages 22–23 are excluded entirely.
 
-## Visual review and refinements
+## Visual review
 
-Used the available Node REPL MCP with real Playwright/Chromium for browser inspection and screenshot capture. The current revision restores the original dark palette and replaces the rough geometric skyline with a generated continuous architectural drawing. The blue-white light theme remains. Reviewed hero composition, mobile landmark framing, homepage event cards, compact mobile team rows and all five dedicated/content routes. The community picture wrapper occupies a single grid cell, without the prior display: contents gap.
+Reviewed homepage, team, initiatives and sponsor pages in both themes. The local fonts match the reference families and intended weights. Team portraits, logo visibility, photo identity, header contrast, focus and mobile stacking were inspected in rendered screenshots.
 
-Homepage checks verify that its opening hero contains only the branch name and that architectural animation is disabled with reduced motion. The sections below it follow About, Events, Team, Get involved and Partnerships. Header section links and project detail links work with the repository base path. The final WebP illustration is checked as a served asset and visually inspected through its SVG luminance mask in both themes. Full motion is a finite entrance lasting at most 1.8 seconds, with no looping. Dated events, recruitment and contacts stay hidden while their data is unavailable.
+Additional browser review covers seven boundary widths (320, 360, 899, 900, 1199, 1200 and 1920px), all five routes and both themes: 70 layouts with no document overflow. Six homepage cases at 1366×768, 1440×700 and 1920×600, in both themes, also pass axe scans.
 
-The 6 September portrait update uses the revised deck's photo and full name for Xizhe Zhang, previously labelled Andy. Divija Jain's headshot is cropped to exclude the source's recruitment frame. All 13 members now have real source portraits; the data model retains its initials fallback for future missing photos. The supplied IEEE logo is unchanged; the diamond favicon and decorative artwork are original and are not represented as official logos.
+Refinements from review:
 
-## Platform detail
+- Opaque navigation at intermediate desktop widths prevents white links from crossing the white homepage plane.
+- An opaque header at the narrowest mobile width keeps the branch's small brand text legible.
+- Short desktop windows use adjusted title/illustration spacing.
+- IEEE Day uses a campus image; the general community photo is not attributed to an unverified event.
+- Favicon cropping preserves the full supplied diamond and removes its faint export boundary.
+- The share image uses the same local fonts, weights and blue-white palette.
 
-Windows static exports in this Next.js release exhibit upstream [issue #92339](https://github.com/vercel/next.js/issues/92339). `scripts/normalize-static-export.mjs` adds canonical segment-cache filenames after building. The browser tests verify actual navigation/prefetch with no server-side rewrite. GitHub Actions builds on Ubuntu, where the correction is a no-op.
+Matrix screenshots and the Playwright report are in ignored `test-results/` and `playwright-report/`. Additional review screenshots and data are in ignored `tmp/final-review/`.
 
-## Continuing editorial requirements
+## Build and deployment
 
-Before adding contact details, partner logos, event registrations or project claims, supply verified public data in `src/data/`. Higher-resolution original photographs will improve image quality. Missing data is currently hidden, and Industry Projects is accurately described as a developing direction.
+All pages, fonts, photographs, logo assets and favicons are served from the static export. Builds need no PDF, Python, external fonts or image-generation service.
+
+The existing postbuild step corrects Windows segment-cache filenames for [Next.js issue #92339](https://github.com/vercel/next.js/issues/92339). Browser navigation is verified using the corrected export.
+
+The existing GitHub Pages workflow validates pushes to `main` and publishes the checked static artifact. Deployment status and the exact published commit are recorded in the repository's Actions history.

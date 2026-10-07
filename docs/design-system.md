@@ -1,60 +1,51 @@
-# IEEE NTU — Blue, white and a sense of place
+# Website design system — October 2026
 
-The current revision pairs an understated name-led opening screen with a connected architectural panorama and a concise scrolling homepage. Light mode keeps IEEE's blue-white identity; dark mode restores the original deep palette. Club facts still come from the AGM.
+[IEEE University of Toronto](https://ieee.utoronto.ca/) is the requested visual reference. Its homepage and team page were inspected in a browser, including computed fonts, weights and colours. Public NTU content and artwork remain separate from Toronto's factual content.
 
-## References and design source of truth
+## Type
 
-- [IEEE Brand Experience](https://brand-experience.ieee.org/): accessible official reference for IEEE blue, white surfaces, clear masthead and content hierarchy. The main ieee.org homepage rejected automated access (browser 418 / crawler exclusion); it was not represented as visually inspected.
-- [IEEE MOVE brand guidelines](https://move.ieee.org/wp-content/uploads/24-TA-3-025-IEEEMOVE-BrandIdentity-Guidelines-Interactive.pdf): official IEEE blue #00629B and navy #002855.
-- [IEEE University of Toronto](https://ieee.utoronto.ca/): visually inspected; the name-led hero, diagonal plane and city linework informed the composition.
-- [IEEE at UCLA](https://www.ieeebruins.com/): visually inspected; clear blue masthead and direct information hierarchy.
-- [IEEE Berkeley](https://ieee.berkeley.edu/): visually inspected; simple navigation and dedicated community/initiative content.
+| Use             | Family           | Weight | Typical size              |
+| --------------- | ---------------- | ------ | ------------------------- |
+| Body            | Source Sans Pro  | 400    | 18px desktop, 17px mobile |
+| Navigation      | Roboto Condensed | 600    | 18px                      |
+| Headings        | Roboto Condensed | 700    | 32–48px                   |
+| Team role       | Roboto Condensed | 700    | 20px desktop, 18px mobile |
+| Team name       | Source Sans Pro  | 400    | 20px desktop, 18px mobile |
+| Homepage IEEE   | Roboto Condensed | 700    | 122–215px                 |
+| Homepage branch | Source Sans Pro  | 700    | 26–43px                   |
 
-No Figma server or design-creation tool was available. No Figma document was created. The code tokens, components and rendered desktop/mobile states are the design source of truth. Available Node REPL MCP ran real Playwright/Chromium for reference inspection and QA. The skyline is an original image generated using the built-in image generation tool, served as an optimised WebP inside a themeable SVG luminance mask. It has no generation dependency at build or runtime. See `architectural-artwork.md` for the prompt and reference provenance. Other branches' imagery, logos and factual content are not republished.
+Fonts are local WOFF2 files. Roboto Condensed is variable; body weights 400, 600 and 700 have individual font files. Both families retain OFL licences. Letter spacing is natural rather than compressed. Fonts are loaded with Next.js localFont.
 
-## Palette
+## Colour
 
-| Semantic use         | Light   | Dark    |
-| -------------------- | ------- | ------- |
-| Background           | #FFFFFF | #050A16 |
-| Elevated surface     | #FFFFFF | #0A1628 |
-| Secondary surface    | #F2F5F7 | #0D1D33 |
-| Primary control      | #00629B | #114BFF |
-| Foreground accent    | #00629B | #80ADFF |
-| Main text            | #253746 | #EEF9FF |
-| Secondary text       | #566673 | #A4B5C9 |
-| Masthead / home blue | #00629B | #050A16 |
-| Home diagonal        | #FFFFFF | #0A1628 |
-| Architectural line   | #A3C6DC | #7796C3 |
+| Use                 | Light   | Dark    |
+| ------------------- | ------- | ------- |
+| Page background     | #FFFFFF | #07081A |
+| Secondary surface   | #DBEAF6 | #091A2F |
+| Primary control     | #00639C | #0038FF |
+| Heading/link accent | #00639C | #ADD5E3 |
+| Main text           | #333333 | #F3F8FB |
+| Secondary text      | #4C4C4C | #BACFDC |
+| Homepage field      | #00639C | #07081A |
+| Homepage plane      | #FFFFFF | #091A2F |
+| Architectural line  | #A3CCDF | #ADD5E3 |
 
-Dark mode restores the original electric-blue emphasis on controls and artwork, with white button text and lighter accents for text, icons and focus. The large surfaces stay near-black; the hero has no bright wash. Original supplied IEEE masterbrand artwork remains unchanged.
+The dark values are from the supplied deck, including its vector electric blue. The light blue and pale background match the inspected reference. The events band uses the deeper primary blue for legible white body text.
 
-## Composition and rhythm
+## Page formats
 
-The hero contains one semantic h1: IEEE on the first line, NTU Student Branch below at roughly one fifth of the size. A blue field and a white diagonal establish the hierarchy. The continuous architectural drawing evokes NTU's Chinese Heritage Centre and The Hive, alongside Marina Bay Sands, Merlion, ArtScience Museum, Singapore Flyer and Supertrees. It is decorative, not an accurate geographic map or official campus drawing.
+The homepage uses a large right-aligned branch name and the existing local architectural panorama, followed by an introduction with a real photograph, community figures, a full blue initiative section, a team preview, a pale participation section, a complete logo grid and a blue contact/footer area.
 
-The desktop uses an asymmetric right-hand title. Tablet keeps the title clear of the diagonal. Mobile centres the name and frames the drawing around The Hive and Marina Bay Sands. No marketing copy or cards compete with the name in the first screen.
+Dedicated pages have centred titles, short introductions, plain text sections and real photographs. The team directory groups all 13 people by leadership and committee, using circular portraits with the role above the name. Filters and team jump links use underlined text rather than rounded pill controls.
 
-Below the hero, the homepage follows a Toronto-inspired flow: About with a real community photograph; three event/initiative highlights; a current-team preview; three participation paths; a partnership invitation; the AGM impact figures; footer. Header anchors connect About, Events, Join us and Partnerships, while Our team opens the dedicated roster. Current sections are identified on scroll. Contact and approved sponsor displays appear only when verified data exists. Dated past events and recruitment links have empty data fields, without unfinished production copy. The existing detail routes stay stable. The team page adds leadership/director jump links without inventing archived committee terms.
+Sponsors/partners are in a borderless grid, all visible at once. Every logo links to its official destination and retains original colours. Jane Street's dark artwork has a white canvas in dark mode. Social profiles and the friend club are available in the shared footer on every route.
 
-Dedicated pages use literal titles and readable introductions, followed by curated information. Inter Variable is self-hosted; body text is 16–17px, major page titles 36–64px. Home IEEE scales from 106–230px. Max content width 1280px; gutters 24–64px; section rhythm 72–120px. Controls use 4px radii, cards 8px, broad panels 12px. Fine borders and pale panels replace glass and glow.
+The content container is 1200px, gutters 22–64px and section spacing 64–88px. Mobile layouts become single columns or simple two-column portrait/logo grids. Decorative cards, numbered tiles, project diagrams and repeated geometric accents are removed.
 
-## Motion and accessibility
+## Navigation and accessibility
 
-Title entrance lasts 900ms; skyline entrance lasts 1800ms. Both play once and stop. No continuous movement, pointer tracking, parallax or scroll interception. Reduced motion removes both animations and all transitions/smooth scrolling. The SVG is hidden from assistive technology and cannot receive focus; the branch name is real HTML.
+The opening header is transparent where the hero offers sufficient contrast. At intermediate desktop widths and the narrowest phone width it uses an opaque surface to keep the brand and links readable. It becomes opaque on scroll, with a mobile menu below 900px. Short desktop windows adjust the title and drawing spacing. Escape closes the menu and returns focus; outside click closes it.
 
-The OS theme is applied before paint on first visit. A deliberate choice persists, and OS changes are followed until that choice exists. The mobile menu supports keyboard input, Escape with focus return, and outside click. Controls have 44px targets, semantic roles and visible focus.
+The theme follows the OS before an explicit preference, persists a choice, and initialises before first paint. Keyboard focus is visible, controls use 44px targets, images have descriptive alternative text and decorative linework is hidden from assistive technology. Reduced motion disables transitions and smooth scrolling. There is no continuous animation.
 
-## Editable implementation
-
-- `src/styles/tokens.css`: shared semantic values.
-- `src/styles/landing.css`: homepage layout, breakpoints and motion.
-- `src/styles/home.css`: homepage content sections.
-- `src/data/home.ts`: curated homepage summaries, featured IDs and optional event/recruitment records.
-- `src/components/singapore-skyline.tsx`: themeable illustration wrapper.
-- `public/images/ntu-singapore-linework.webp`: final original architectural asset.
-- `src/styles/globals.css`: global shell and dedicated-page components.
-- `src/data/`: factual content, people, projects, metrics, partners and contact fields.
-- `scripts/create-social-card.mjs`: original matching blue-white share artwork.
-
-Missing contacts, portraits and approved partner logos continue to be handled by the existing data model. The redesign adds no new organisational claims.
+The favicon and Apple touch icon use the actual supplied IEEE diamond on blue. The share image is rendered with the same local fonts and homepage colours.

@@ -1,50 +1,51 @@
 export const principles = [
   {
-    number: '01',
-    title: 'Build',
-    description: 'Turn curiosity into technical work through projects, code and experimentation.',
+    title: 'Member experience',
+    description:
+      'Give students opportunities to learn, contribute and take ownership of projects beyond the classroom.',
   },
   {
-    number: '02',
-    title: 'Connect',
-    description: 'Bring students, ideas and industry closer together.',
+    title: 'Technical development',
+    description:
+      'Build practical skills through hackathons, workshops and collaborative technical work.',
   },
   {
-    number: '03',
-    title: 'Create',
-    description: 'Make room for collaboration and forward-thinking solutions.',
+    title: 'Community growth',
+    description:
+      'Connect students across disciplines and help more people get involved in engineering and technology.',
   },
   {
-    number: '04',
-    title: 'Grow',
-    description: 'Create meaningful experiences that help our community move forward.',
+    title: 'Meaningful partnerships',
+    description:
+      'Develop lasting relationships with industry and other student organisations, within NTU and across Singapore.',
   },
 ];
 
 export const pillars = [
   {
-    icon: 'code',
     title: 'Technology',
-    description: 'Hackathons, technical projects and a community of builders.',
+    description:
+      'Organises Coding Nights and iNTUition, supports hackathon participants, and develops our website and industry projects.',
   },
   {
-    icon: 'connections',
-    title: 'Industry & partnerships',
-    description: 'Meaningful opportunities and lasting industry connections.',
+    title: 'Business Development',
+    description:
+      'Connects with companies and develops sponsorships, technical opportunities and lasting industry partnerships.',
   },
   {
-    icon: 'spark',
-    title: 'Community & marketing',
-    description: 'A shared voice that connects and grows our community.',
+    title: 'Logistics',
+    description:
+      'Coordinates venues, equipment, suppliers and on-site operations, and develops club merchandise.',
   },
   {
-    icon: 'layers',
-    title: 'Operations',
-    description: 'The people and preparation behind well-run initiatives.',
+    title: 'Marketing',
+    description:
+      'Communicates events and opportunities, creates campaigns, and captures the people and achievements of our branch.',
   },
-  {
-    icon: 'compass',
-    title: 'Strategy & ecosystem',
-    description: 'Long-term direction, with student opportunities at the centre.',
-  },
-] as const;
+];
+
+export const strategy = {
+  title: 'Strategy Office',
+  description:
+    'Supports the branch’s long-term direction, connects students with opportunities and develops our industry and ecosystem relationships. Our roadmap progresses from building a foundation to industry integration and ecosystem development.',
+};

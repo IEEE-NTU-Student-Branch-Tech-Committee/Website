@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import '@fontsource-variable/inter';
+import localFont from 'next/font/local';
 import '@/styles/tokens.css';
 import '@/styles/globals.css';
 import '@/styles/landing.css';
@@ -7,6 +7,23 @@ import '@/styles/home.css';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { asset, siteConfig } from '@/data/site';
+
+const bodyFont = localFont({
+  src: [
+    { path: '../fonts/source-sans-pro-400.woff2', weight: '400', style: 'normal' },
+    { path: '../fonts/source-sans-pro-600.woff2', weight: '600', style: 'normal' },
+    { path: '../fonts/source-sans-pro-700.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-body',
+  display: 'swap',
+  fallback: ['Arial'],
+});
+const headingFont = localFont({
+  src: [{ path: '../fonts/roboto-condensed-700.woff2', weight: '100 900', style: 'normal' }],
+  variable: '--font-heading',
+  display: 'swap',
+  fallback: ['Arial Narrow', 'Arial'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteConfig.url}/`),
@@ -32,15 +49,21 @@ export const metadata: Metadata = {
     ],
   },
   twitter: { card: 'summary_large_image' },
-  icons: { icon: asset('/icon.svg') },
+  icons: {
+    icon: [
+      { url: asset('/favicon.ico'), sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+      { url: asset('/favicon.png'), sizes: '256x256', type: 'image/png' },
+    ],
+    apple: { url: asset('/apple-touch-icon.png'), sizes: '180x180', type: 'image/png' },
+  },
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#050a16' },
-    { media: '(prefers-color-scheme: light)', color: '#00629b' },
+    { media: '(prefers-color-scheme: dark)', color: '#07081a' },
+    { media: '(prefers-color-scheme: light)', color: '#00639c' },
   ],
 };
 
@@ -53,12 +76,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: siteConfig.name,
     url: siteConfig.url,
     foundingDate: '1991',
+    logo: `${siteConfig.url}/favicon.png`,
     description: siteConfig.description,
     ...(siteConfig.contactEmail ? { email: siteConfig.contactEmail } : {}),
     ...(siteConfig.socialLinks.length ? { sameAs: siteConfig.socialLinks.map((s) => s.url) } : {}),
   };
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${bodyFont.variable} ${headingFont.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script

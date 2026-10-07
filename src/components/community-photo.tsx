@@ -6,7 +6,7 @@ export function CommunityPhoto({ alt, sizes }: { alt: string; sizes: string }) {
     <picture className="responsive-image">
       <source
         type="image/webp"
-        srcSet={`${asset('/images/community-480.webp')} 480w, ${asset('/images/community-800.webp')} 800w`}
+        srcSet={`${asset('/images/community-480.webp')} 480w, ${asset('/images/community-800.webp')} 800w, ${asset('/images/community-1200.webp')} 1200w`}
         sizes={sizes}
       />
       <Image

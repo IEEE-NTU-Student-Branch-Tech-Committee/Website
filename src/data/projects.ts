@@ -5,8 +5,8 @@ export type Project = {
   label: string;
   description: string;
   focus: string;
-  illustration: 'intuition' | 'coding' | 'industry' | 'ieee';
   image: string | null;
+  imageAlt: string;
   externalUrl: string | null;
 };
 
@@ -20,8 +20,8 @@ export const projects: Project[] = [
     description:
       'A meeting point for curious minds. Our annual hackathon brings students together to explore ideas, collaborate and build with technology.',
     focus: 'Ideate. Collaborate. Build.',
-    illustration: 'intuition',
-    image: null,
+    image: '/images/intuition.webp',
+    imageAlt: 'A presentation at the iNTUition hackathon',
     externalUrl: null,
   },
   {
@@ -30,10 +30,10 @@ export const projects: Project[] = [
     category: 'Community',
     label: 'Learn by doing',
     description:
-      'A space for our technical community to come together around code, develop skills and share the process of building.',
+      'Hands-on coding workshops where students practise technical skills, learn from one another and prepare for technical interviews. Coding Nights 1.0 and 2.0 are part of our Technology Committee’s programme.',
     focus: 'Code. Learn. Connect.',
-    illustration: 'coding',
-    image: null,
+    image: '/images/coding-nights.webp',
+    imageAlt: 'Participants and organisers at Coding Nights',
     externalUrl: null,
   },
   {
@@ -44,8 +44,8 @@ export const projects: Project[] = [
     description:
       'We’re developing opportunities for student teams to collaborate with companies on meaningful technical projects, taking ideas into real-world contexts.',
     focus: 'Technical talent. Meaningful collaboration.',
-    illustration: 'industry',
-    image: null,
+    image: '/images/ntu-campus.webp',
+    imageAlt: 'The Hive at Nanyang Technological University',
     externalUrl: null,
   },
   {
@@ -56,14 +56,14 @@ export const projects: Project[] = [
     description:
       'A flagship community initiative bringing students together around a shared interest in engineering, technology and innovation.',
     focus: 'A shared passion for technology.',
-    illustration: 'ieee',
-    image: null,
+    image: '/images/ntu-campus.webp',
+    imageAlt: 'The Hive on the NTU campus',
     externalUrl: null,
   },
 ];
 
 export const workshops = {
-  title: 'Keep your curiosity moving.',
+  title: 'Workshops & seminars',
   description:
     'Industry-focused workshops and seminars connect our community with technical ideas and perspectives beyond the classroom.',
 };

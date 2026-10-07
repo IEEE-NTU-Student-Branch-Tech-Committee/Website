@@ -68,7 +68,6 @@ export function SectionHeading({
 }
 
 export function PageHero({
-  eyebrow,
   title,
   description,
   children,
@@ -80,7 +79,6 @@ export function PageHero({
 }) {
   return (
     <section className="page-hero container">
-      <Eyebrow>{eyebrow}</Eyebrow>
       <h1>{title}</h1>
       <p className="page-intro">{description}</p>
       {children}

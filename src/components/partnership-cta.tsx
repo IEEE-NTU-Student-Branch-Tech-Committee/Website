@@ -1,28 +1,16 @@
-import { ButtonLink, Eyebrow } from './ui';
+import { TextLink } from './ui';
 
 export function PartnershipCTA() {
   return (
-    <section className="container partnership-section">
-      <div className="cta-panel">
+    <section className="partnership-section">
+      <div className="container partnership-invitation">
         <div>
-          <Eyebrow>Better, together</Eyebrow>
-          <h2>
-            Great ideas deserve
-            <br />
-            meaningful connections.
-          </h2>
+          <h2>Partner with IEEE NTU</h2>
           <p>
-            Connect with a community of student technologists.
-            <br className="desktop-break" /> Let’s build opportunities that go further.
+            Support student learning through events, technical projects and industry collaboration.
           </p>
-          <ButtonLink href="/partnerships/">Partner with IEEE NTU</ButtonLink>
         </div>
-        <div className="cta-geometry" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </div>
-        <span className="cta-note">STUDENT TALENT. INDUSTRY PERSPECTIVE. SHARED POSSIBILITY.</span>
+        <TextLink href="/partnerships/">Explore partnerships</TextLink>
       </div>
     </section>
   );

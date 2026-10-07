@@ -8,21 +8,40 @@ export const siteConfig = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
     'https://ieee-ntu-student-branch-tech-committee.github.io/Website',
-  // TODO: Supply a verified public inbox and approved social URLs. Empty values are never displayed.
   contactEmail: null as string | null,
   partnershipEmail: null as string | null,
-  socialLinks: [] as { label: string; url: string }[],
+  socialLinks: [
+    {
+      label: 'Instagram',
+      icon: 'instagram',
+      url: 'https://www.instagram.com/ieee_ntu/',
+      description: 'Event announcements and life at IEEE NTU.',
+    },
+    {
+      label: 'LinkedIn',
+      icon: 'linkedin',
+      url: 'https://www.linkedin.com/company/ieee-ntu-student-branch/',
+      description: 'Our people, partnerships and opportunities.',
+    },
+    {
+      label: 'GitHub',
+      icon: 'github',
+      url: 'https://github.com/IEEE-NTU-Student-Branch-Tech-Committee',
+      description: 'Projects from our Technology Committee.',
+    },
+  ] as const,
+  friends: [{ label: 'NTU Women in Tech', url: 'https://www.ntuwit.com/' }],
 };
 
 type NavigationItem = { label: string; href: string; section?: string; activePath?: string };
 export const navigation: NavigationItem[] = [
   { label: 'About', href: '/#about', section: 'about', activePath: '/about/' },
-  { label: 'Our team', href: '/people/', section: 'team', activePath: '/people/' },
+  { label: 'Our Team', href: '/people/', section: 'team', activePath: '/people/' },
   { label: 'Events', href: '/#events', section: 'events', activePath: '/initiatives/' },
-  { label: 'Join us', href: '/#join-us', section: 'join-us' },
-  { label: 'Partnerships', href: '/#partners', section: 'partners', activePath: '/partnerships/' },
+  { label: 'Join Us', href: '/#join-us', section: 'join-us' },
+  { label: 'Sponsors', href: '/#partners', section: 'partners', activePath: '/partnerships/' },
   ...(siteConfig.contactEmail || siteConfig.socialLinks.length
-    ? [{ label: 'Contact', href: '/#contact', section: 'contact' }]
+    ? [{ label: 'Contact Us', href: '/#contact', section: 'contact' }]
     : []),
 ];
 

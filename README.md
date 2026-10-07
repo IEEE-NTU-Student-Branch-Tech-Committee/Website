@@ -1,83 +1,47 @@
 # IEEE NTU Student Branch
 
-The public website of IEEE NTU Student Branch at Nanyang Technological University. Built with Next.js App Router, TypeScript, self-hosted Inter Variable and a custom semantic CSS design system. Statically exported for GitHub Pages.
+Official student branch website at Nanyang Technological University. Next.js App Router, TypeScript, local Roboto Condensed and Source Sans Pro, and a static export for GitHub Pages.
 
-**Website:** https://ieee-ntu-student-branch-tech-committee.github.io/Website/
+Website: https://ieee-ntu-student-branch-tech-committee.github.io/Website/
 
-**Repository:** https://github.com/IEEE-NTU-Student-Branch-Tech-Committee/Website
+## Development
 
-## Local development
-
-Requires Node.js 24 and npm 11.6.2 (also pinned in CI for reproducible lockfile resolution).
+Use Node.js 24 and npm 11.6.2, matching CI. On Windows, use `npm.cmd` when PowerShell blocks `npm.ps1`.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
+## Pages and content
 
-## Routes
+| Route          | Content                                                                                                     |
+| -------------- | ----------------------------------------------------------------------------------------------------------- |
+| /              | Branch introduction, community figures, initiatives, team, participation, all sponsors/partners and contact |
+| /about/        | History, objectives, four committees and Strategy Office                                                    |
+| /initiatives/  | Filterable initiative directory with direct section links                                                   |
+| /people/       | All 13 leaders and directors for 2026/27                                                                    |
+| /partnerships/ | Eight linked sponsor/partner logos, collaboration areas and public contact channels                         |
 
-| Route            | Purpose                                                                    |
-| ---------------- | -------------------------------------------------------------------------- |
-| `/`              | Name-led hero, About, events, team, participation and partnership sections |
-| `/about/`        | History, purpose, principles and public functional pillars                 |
-| `/initiatives/`  | Filterable portfolio with anchored initiative details                      |
-| `/people/`       | 2026/27 leadership and directors                                           |
-| `/partnerships/` | Four public collaboration areas and configurable contact links             |
+A custom 404, canonical URLs, share image, sitemap, robots file and organisation structured data are included.
 
-There is also a designed 404 page, sitemap, robots file and organisation structured data. Public contact fields and approved partner logos render only when configured. No contact form submits to an unconfigured service.
+Edit factual content in `src/data/`: `people.ts` for names, roles and portraits; `projects.ts` for initiatives and photographs; `metrics.ts` for community figures; `partners.ts` for logo artwork, URLs and collaboration areas; `site.ts` for navigation, social profiles, friends and site URL; `about.ts` and `home.ts` for public copy.
 
-## Updating content
+Partner logos link directly to official websites. Jane Street is a confirmed sponsor; the seven other recognised organisations are listed alongside it as ecosystem partners. The two unidentified source marks are omitted as requested by the branch. Public profiles are Instagram, LinkedIn and the Technology Committee's GitHub. NTU Women in Tech is listed under Friends.
 
-Content lives separately from components:
+The internal source PDF and its QR codes must stay outside `public/`. Do not add internal group invitations, unconfirmed event dates, registration forms or contact addresses. Industry Projects describes work being developed. General community and campus photographs must not be presented as evidence of a specific event.
 
-| Edit                                                                       | File                                        |
-| -------------------------------------------------------------------------- | ------------------------------------------- |
-| Names, roles, portraits, groups and profiles                               | `src/data/people.ts`                        |
-| Initiative names, descriptions, artwork type, optional photos/links        | `src/data/projects.ts`                      |
-| AGM-reported impact metrics                                                | `src/data/metrics.ts`                       |
-| Approved partner names, logos, URLs and collaboration areas                | `src/data/partners.ts`                      |
-| Organisation name, committee term, public URL, email and social links      | `src/data/site.ts`                          |
-| Public principles and organisational functions                             | `src/data/about.ts`                         |
-| Homepage summaries, featured IDs, recruitment link and dated event archive | `src/data/home.ts`                          |
-| Theme colours, typography, spacing, borders, radii and motion              | `src/styles/tokens.css`                     |
-| Responsive layout and component styling                                    | `src/styles/globals.css`                    |
-| Homepage composition, responsive skyline and entrance motion               | `src/styles/landing.css`                    |
-| Homepage content section layout                                            | `src/styles/home.css`                       |
-| Themeable architectural illustration wrapper                               | `src/components/singapore-skyline.tsx`      |
-| Original generated architectural linework                                  | `public/images/ntu-singapore-linework.webp` |
-| Optimised local images and original social card                            | `public/images/`                            |
+## Design
 
-For a person, set `portrait` to a filename in `public/images/`, or `null` to display initials. Provide clean photos around 480 × 540px in WebP. Use the documented role and group values; names are rendered only from the data array. Optional profile links can be `null`.
+The light theme follows [IEEE University of Toronto](https://ieee.utoronto.ca/): white, #00639C blue, #DBEAF6 section backgrounds, Roboto Condensed headings/navigation and Source Sans Pro body text. Dark mode uses the supplied deck's #07081A navy, #091A2F secondary surface, #0038FF electric blue and #ADD5E3 accents.
 
-For a project, optional `image` uses a path such as `/images/project.webp`; `externalUrl` should be a confirmed public destination. Without a photo, the original project illustration remains. The existing descriptions do not assert event dates, open registration or completed client work.
+Team portraits are circular, with the role above the name. Photos and plain text replace decorative cards and portfolio geometry. The existing local architectural illustration remains in the homepage opening. The favicon uses the supplied official IEEE diamond.
 
-For partners, require `approved: true` and a verified logo/URL. For contact, add the verified `contactEmail`, optionally `partnershipEmail`, and social links to `siteConfig`. The footer and partnerships page show them automatically. Never add placeholder emails, fake contacts or unfinished copy.
+Tokens are in `src/styles/tokens.css`; responsive components are in `globals.css`; homepage styles are in `landing.css` and `home.css`. Fonts and their OFL licences are in `src/fonts/`, with no external font request at runtime. Theme preference follows the OS until explicitly chosen, persists across reloads, and initialises before paint.
 
-### Assets still needed
+See `docs/design-system.md`, `docs/content-audit.md` and `docs/qa.md` for implementation and review details.
 
-- Approved public contact email and social profiles.
-- An uncropped original portrait of Divija Jain would allow a wider composition; her current headshot excludes the source photo's recruitment frame. All 13 current members now have real portraits.
-- Higher-resolution original event/committee photographs where available.
-- Confirmed partner identities and approved logo artwork.
-- Verified initiative registration links, dates and public project details when ready.
-- An approved branch-specific logo/favicon if the team wants to replace the supplied IEEE masterbrand and original geometric favicon.
-
-## Brand and source decisions
-
-IEEE blue (#00629B), white space and direct page headings establish the light identity. The opening screen contains only the branch name: a large IEEE, a smaller NTU Student Branch, and a continuous architectural line drawing of NTU and Singapore landmarks. The original generated illustration evokes the Chinese Heritage Centre, The Hive, Marina Bay Sands, Merlion, ArtScience Museum, Supertrees and Singapore Flyer. It is decorative rather than an accurate geographic map. See `docs/architectural-artwork.md` for the generation brief and references.
-
-Dark mode restores the original #050A16 background, #0A1628 elevated surface, #114BFF emphasis and ice-blue typography. Both themes share semantic tokens. The theme follows the OS on first visit, persists a deliberate choice, and initialises before first paint. A short entrance plays once; reduced motion disables it.
-
-Toronto's IEEE branch now informs both the illustrated hero and the content flow below it: About, Events, Our team, Join us and Partnerships, with Contact shown only when verified details exist. Header links navigate to homepage sections, while the team and detailed organisation/initiative pages remain available. The current section is identified as you scroll. No content, event dates, sponsors, contacts or artwork from Toronto are republished. `pastEvents` and `recruitmentUrl` are empty until verified records exist; no unfinished section or inactive signup is displayed.
-
-The deck is the factual source for the founding year, public mission, four impact figures, initiative names, leadership and functions. Read `docs/content-audit.md` for page-level provenance and exclusions. Internal workflows/targets, unconfirmed lab/partner claims and all template residue are excluded. The internal PDF and extraction scratch files are deliberately outside version control.
-
-Figma MCP was unavailable; no Figma file was created. The code tokens and rendered components are the design source of truth. Browser QA uses real Chromium through Playwright, including the Node REPL MCP available in the implementation session. See `docs/design-system.md` and `docs/qa.md`.
-
-## Validation
+## Validation and preview
 
 ```sh
 npm run lint
@@ -85,30 +49,37 @@ npm run typecheck
 npm run build
 npx playwright install chromium
 npm test
+npm run preview
 ```
 
-The tests launch the static export with a tiny local preview server. They cover five pages at 390, 768, 1024 and 1440px in dark/light themes, axe accessibility checks, horizontal overflow, image decoding, page errors, theme persistence, blocked storage, mobile navigation, keyboard access, filtering, initiative anchors, metadata, reduced motion and the 404. Full-page screenshots are written to `test-results/`; view the report with `npx playwright show-report`.
+Browser tests cover all five pages at 320, 390, 768, 1024 and 1440px, in both themes; axe checks, image decoding, overflow, browser errors, theme persistence, keyboard navigation, mobile menu, filters, deep links, metadata, 404 and public links. Screenshots are in `test-results/`; open the report with `npx playwright show-report`.
 
-Format code with `npx prettier --write .`.
-
-## Deployment
-
-Push to `main`. `.github/workflows/deploy.yml` installs locked dependencies, lints, checks types, builds a static export, runs browser QA, and deploys the verified `out/` artifact through GitHub Pages. Pull requests run the checks without deployment. Repository Settings → Pages must use **GitHub Actions**.
-
-The workflow explicitly sets the repository base path and canonical site URL. If the repository name, owner or custom domain changes, update both workflow environment values and the fallback URL in `src/data/site.ts`. `next.config.ts`, internal Next.js links and the `asset()` helper handle the base path. No `.nojekyll` branch workaround or server runtime is required with the Pages artifact workflow.
-
-To locally verify the deployment base path in PowerShell:
+To check the actual GitHub Pages path in PowerShell:
 
 ```powershell
 $env:NEXT_PUBLIC_BASE_PATH='/Website'
 npm.cmd run build
 npm.cmd test
+npm.cmd run preview
 ```
 
-Stop an existing preview server before changing its base path.
+Preview: http://127.0.0.1:4173/Website/. Stop an existing preview before changing its base path. Format source with `npx prettier --write src tests scripts/*.mjs`.
 
-`postbuild` normalises a [Next.js Windows static-export issue](https://github.com/vercel/next.js/issues/92339) by adding the dot-separated route segment files expected by the browser. It changes only the generated `out/` artifact and is a no-op on correctly generated Linux builds. This keeps navigation and prefetch working on ordinary static hosting.
+## Deployment
 
-## Optional asset maintenance scripts
+The existing `.github/workflows/deploy.yml` checks a push to `main`, runs browser QA and deploys the verified export to GitHub Pages. Pull requests run checks without deployment. Repository Pages settings must use GitHub Actions.
 
-`scripts/extract-assets.py` regenerates the initial curated assets from `../AGM deck.pdf` using PyMuPDF/Pillow. `scripts/extract-updated-portraits.py` extracts Divija Jain and Xizhe Zhang from `../AGM deck (1).pdf`; the revised page 7 also supplies the logistics director's full name. These are optional maintenance tools, never part of the build. `scripts/create-social-card.mjs` regenerates the original OpenGraph PNG with Sharp. The generated public assets are checked in, so future builds do not need the PDF, Python or external font downloads.
+The workflow supplies `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL`. Update them and the fallback URL in `src/data/site.ts` if the repository URL or domain changes. Internal Next.js links and `asset()` handle the base path.
+
+`postbuild` normalises [Next.js Windows static-export issue #92339](https://github.com/vercel/next.js/issues/92339) by adding the segment-cache filenames expected by the browser. It affects only `out/` and is a no-op on correctly generated Linux builds.
+
+## Optional asset maintenance
+
+The checked-in assets keep ordinary builds independent of Python, source PDFs and font downloads.
+
+- `scripts/extract-current-assets.py`: reviewed public logo/photo allowlist from `../AGM deck (2).pdf`; excludes internal QR pages.
+- `scripts/prepare-public-assets.py`: local webfonts/licences, selected event/campus photographs and official diamond favicons. Requires requests, PyMuPDF and Pillow.
+- `scripts/create-social-card.mjs`: renders the share image with the same local fonts through Playwright.
+- Older portrait extraction scripts retain the original source mappings for the 13 current members.
+
+Use higher-resolution originals when available. Keep names, roles and photo identity accurate when refreshing assets.

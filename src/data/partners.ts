@@ -1,34 +1,84 @@
-export type Partner = { name: string; logo: string; url: string; approved: boolean };
-// TODO: Add only confirmed public partners with approved, current logo files.
-export const partners: Partner[] = [];
+export type Partner = {
+  name: string;
+  logo: string;
+  url: string;
+  kind: 'Sponsor' | 'Ecosystem partner';
+  wide?: boolean;
+};
+
+// Jane Street is confirmed by the branch. Seven other identities appear on
+// source slide 11. Two unconfirmed marks are excluded at the branch's request.
+export const partners: Partner[] = [
+  {
+    name: 'Jane Street',
+    logo: '/images/partners/jane-street.svg',
+    url: 'https://www.janestreet.com/',
+    kind: 'Sponsor',
+    wide: true,
+  },
+  {
+    name: 'GovTech Singapore',
+    logo: '/images/partners/govtech.png',
+    url: 'https://www.tech.gov.sg/',
+    kind: 'Ecosystem partner',
+  },
+  {
+    name: 'YouthTechSG',
+    logo: '/images/partners/youthtechsg.png',
+    url: 'https://www.youthtech.sg/',
+    kind: 'Ecosystem partner',
+  },
+  {
+    name: 'EDB Singapore',
+    logo: '/images/partners/edb.png',
+    url: 'https://www.edb.gov.sg/',
+    kind: 'Ecosystem partner',
+  },
+  {
+    name: 'DSTA',
+    logo: '/images/partners/dsta.png',
+    url: 'https://www.dsta.gov.sg/',
+    kind: 'Ecosystem partner',
+  },
+  {
+    name: 'Reactor School',
+    logo: '/images/partners/reactor-school.png',
+    url: 'https://www.reactor.school/',
+    kind: 'Ecosystem partner',
+  },
+  {
+    name: 'IMDA',
+    logo: '/images/partners/imda.png',
+    url: 'https://www.imda.gov.sg/',
+    kind: 'Ecosystem partner',
+  },
+  {
+    name: 'NTU Career & Attachment Office',
+    logo: '/images/partners/ntu-cao.png',
+    url: 'https://www.ntu.edu.sg/education/career-guidance-industry-collaborations',
+    kind: 'Ecosystem partner',
+  },
+];
 
 export const partnershipAreas = [
   {
-    number: '01',
-    title: 'Hackathon & event partnerships',
+    title: 'Hackathons & events',
     description:
-      'Connect with student technologists through iNTUition, IEEE Day and our technical community initiatives.',
-    tags: ['iNTUition', 'IEEE Day'],
+      'Support iNTUition and our community events through sponsorship, problem statements, prizes and mentorship.',
   },
   {
-    number: '02',
-    title: 'Industry Projects',
+    title: 'Industry projects',
     description:
-      'Explore opportunities for student teams and industry to work together on meaningful technical challenges.',
-    tags: ['Technical collaboration', 'Student talent'],
+      'Work with student teams on practical technical challenges, from an initial idea to a finished deliverable.',
   },
   {
-    number: '03',
-    title: 'Knowledge & expertise',
+    title: 'Workshops & seminars',
     description:
-      'Bring industry perspectives into the student community through technical workshops and seminars.',
-    tags: ['Workshops', 'Seminars'],
+      'Share technical expertise and industry experience through hands-on sessions and conversations with students.',
   },
   {
-    number: '04',
-    title: 'Long-term collaboration',
+    title: 'Long-term partnerships',
     description:
-      'Build relationships that create ongoing opportunities for students, connecting our technical community with the wider ecosystem.',
-    tags: ['Industry connections', 'Community'],
+      'Develop ongoing collaborations that support our members and connect student talent with industry opportunities.',
   },
 ];

@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { siteConfig } from '../src/data/site';
+import { partners } from '../src/data/partners';
 
 const routes = ['', 'about/', 'initiatives/', 'people/', 'partnerships/'];
 
 for (const theme of ['dark', 'light'] as const) {
-  for (const width of [390, 768, 1024, 1440]) {
+  for (const width of [320, 390, 768, 1024, 1440]) {
     test(`${theme} at ${width}px: routes, images, overflow and accessibility`, async ({
       page,
     }, testInfo) => {
@@ -38,6 +39,7 @@ for (const theme of ['dark', 'light'] as const) {
             )
             .toBeTruthy();
         }
+        await page.evaluate(() => window.scrollTo(0, 0));
         const accessibility = await new AxeBuilder({ page })
           .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
           .analyze();
@@ -99,9 +101,9 @@ test('Mobile menu and keyboard navigation', async ({ page }) => {
   await menu.click();
   await page
     .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Our team' })
+    .getByRole('link', { name: 'Our Team' })
     .click();
-  await expect(page.locator('h1')).toHaveText('Our people');
+  await expect(page.locator('h1')).toHaveText('Our Team');
   await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeHidden();
   await page.getByRole('button', { name: 'Open menu' }).click();
   await page
@@ -140,7 +142,8 @@ test('Filters and initiative deep links work', async ({ page }) => {
 test('Metadata, missing content, reduced motion and 404', async ({ page, request }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('./');
-  await expect(page.locator('.home-landing')).toHaveText('IEEE NTU Student Branch');
+  await expect(page.locator('h1')).toContainText('IEEE NTU Student Branch');
+  await expect(page.locator('h1')).toContainText('Nanyang Technological University');
   expect(
     await page.locator('.singapore-skyline').evaluate((e) => getComputedStyle(e).animationName),
   ).toBe('none');
@@ -162,7 +165,39 @@ test('Metadata, missing content, reduced motion and 404', async ({ page, request
   expect((await request.get('robots.txt')).status()).toBe(200);
   expect((await request.get('images/social-card.png')).status()).toBe(200);
   expect((await request.get('images/ntu-singapore-linework.webp')).status()).toBe(200);
+  expect((await request.get('favicon.ico')).status()).toBe(200);
+  await expect(page.locator('link[rel="icon"][type="image/png"]')).toHaveAttribute(
+    'href',
+    /\/favicon\.png$/,
+  );
   const response = await page.goto('not-a-page/');
   expect(response?.status()).toBe(404);
   await expect(page.getByRole('link', { name: 'Back to home' })).toBeVisible();
+});
+
+test('Public sponsors, social profiles and friend club are linked without internal material', async ({
+  page,
+}) => {
+  for (const route of routes) {
+    await page.goto(route || './');
+    await expect(page.locator('body')).not.toContainText(
+      /\bAGM\b|built based on|Lorem ipsum|Coming soon/i,
+    );
+    await expect(
+      page.locator('a[href*="chat.whatsapp.com"], a[href$=".pdf"], img[src*="qr-code"]'),
+    ).toHaveCount(0);
+    const footer = page.locator('footer');
+    for (const social of siteConfig.socialLinks) {
+      await expect(footer.locator(`a[href="${social.url}"]`)).toBeVisible();
+    }
+    await expect(footer.locator('a[href="https://www.ntuwit.com/"]')).toBeVisible();
+    if (route === '' || route === 'partnerships/') {
+      await expect(page.locator('.partner-logos li')).toHaveCount(8);
+      for (const partner of partners) {
+        const link = page.locator(`.partner-logos a[href="${partner.url}"]`);
+        await expect(link).toHaveAttribute('target', '_blank');
+        await expect(link.locator('img')).toHaveAttribute('alt', partner.name);
+      }
+    }
+  }
 });

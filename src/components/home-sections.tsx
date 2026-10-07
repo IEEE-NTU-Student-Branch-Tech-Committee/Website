@@ -1,34 +1,37 @@
-import Image from 'next/image';
-import { homeContent, pastEvents } from '@/data/home';
+import { homeContent } from '@/data/home';
 import { people, committeeTerm } from '@/data/people';
 import { projects } from '@/data/projects';
-import { partners } from '@/data/partners';
-import { asset, siteConfig } from '@/data/site';
+import { siteConfig } from '@/data/site';
 import { CommunityPhoto } from './community-photo';
 import { Icon } from './icon';
-import { Metrics } from './metrics';
 import { PersonCard } from './person-card';
 import { ProjectCard } from './project-card';
-import { ButtonLink, Eyebrow, SectionHeading, TextLink } from './ui';
+import { PartnerLogos } from './partner-logos';
+import { SocialLinks } from './social-links';
+import { TextLink } from './ui';
 
 export function HomeAbout() {
   return (
     <section id="about" className="home-about home-section">
       <div className="container home-about-grid">
         <div>
-          <Eyebrow>IEEE NTU Student Branch · Since {siteConfig.founded}</Eyebrow>
           <h2>{homeContent.about.title}</h2>
-          <p className="home-about-lead">{homeContent.about.introduction}</p>
           <p>{homeContent.about.description}</p>
+          <p>{homeContent.about.mission}</p>
           <div className="button-row">
-            <TextLink href="/about/">More about IEEE NTU</TextLink>
-            <a href="https://www.ieee.org/" className="text-link">
+            <TextLink href="/about/">More about us</TextLink>
+            <a
+              href="https://www.ieee.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
               Visit IEEE.org <Icon name="diagonal" />
             </a>
           </div>
         </div>
         <CommunityPhoto
-          alt="IEEE NTU students gathered after a community event"
+          alt="Students at an IEEE NTU community event"
           sizes="(max-width: 899px) 90vw, 45vw"
         />
       </div>
@@ -38,73 +41,46 @@ export function HomeAbout() {
 
 export function HomeEvents() {
   const featured = homeContent.featuredProjectSlugs.flatMap((slug) =>
-    projects.filter((p) => p.slug === slug),
+    projects.filter((project) => project.slug === slug),
   );
   return (
     <section id="events" className="home-events home-section">
       <div className="container">
-        <SectionHeading
-          eyebrow="Explore our community"
-          title={homeContent.events.title}
-          description={homeContent.events.description}
-        >
-          <TextLink href="/initiatives/">View all initiatives</TextLink>
-        </SectionHeading>
+        <div className="centered-heading">
+          <h2>Events & Initiatives</h2>
+          <p>Hackathons, hands-on workshops and a community of students who enjoy technology.</p>
+        </div>
         <div className="home-events-grid">
           {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} index={projects.indexOf(project)} />
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
-        {pastEvents.length > 0 && (
-          <div className="event-archive">
-            <h3>Past events</h3>
-            <div className="event-archive-grid">
-              {pastEvents.map((event) => (
-                <article key={event.id}>
-                  {event.image && (
-                    <Image src={asset(event.image)} width={640} height={400} alt={event.title} />
-                  )}
-                  <time dateTime={event.date}>
-                    {new Intl.DateTimeFormat('en-SG', {
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric',
-                      timeZone: 'UTC',
-                    }).format(new Date(event.date))}
-                  </time>
-                  <h4>{event.title}</h4>
-                  {event.url && (
-                    <a className="text-link" href={event.url}>
-                      View event <Icon name="diagonal" />
-                    </a>
-                  )}
-                </article>
-              ))}
-            </div>
-          </div>
-        )}
+        <div className="section-link">
+          <TextLink href="/initiatives/">All our initiatives</TextLink>
+        </div>
       </div>
     </section>
   );
 }
 
 export function HomeTeam() {
-  const featured = homeContent.team.featuredIds.flatMap((id) => people.filter((p) => p.id === id));
+  const featured = homeContent.team.featuredIds.flatMap((id) =>
+    people.filter((person) => person.id === id),
+  );
   return (
     <section id="team" className="home-team home-section">
-      <div className="container home-team-grid">
-        <div className="home-team-copy">
-          <Eyebrow>Our team · {committeeTerm}</Eyebrow>
+      <div className="container">
+        <div className="centered-heading">
           <h2>{homeContent.team.title}</h2>
-          <p>{homeContent.team.description}</p>
-          <ButtonLink href="/people/" secondary>
-            Meet the full committee
-          </ButtonLink>
+          <p>Committee {committeeTerm}</p>
         </div>
         <div className="home-team-people">
           {featured.map((person) => (
             <PersonCard key={person.id} person={person} />
           ))}
+        </div>
+        <div className="section-link">
+          <TextLink href="/people/">Meet the full committee</TextLink>
         </div>
       </div>
     </section>
@@ -114,81 +90,57 @@ export function HomeTeam() {
 export function HomeJoin() {
   return (
     <section id="join-us" className="home-join home-section">
-      <div className="container">
-        <SectionHeading
-          eyebrow="Join our community"
-          title={homeContent.join.title}
-          description={homeContent.join.description}
-        />
-        <div className="home-join-grid">
-          {homeContent.join.opportunities.map((opportunity) => (
-            <article key={opportunity.title}>
-              <Icon name={opportunity.icon} />
-              <h3>{opportunity.title}</h3>
-              <p>{opportunity.description}</p>
-              <TextLink href={opportunity.href}>{opportunity.linkLabel}</TextLink>
-            </article>
-          ))}
-        </div>
-        {homeContent.recruitmentUrl && (
-          <a className="button button-primary recruitment-link" href={homeContent.recruitmentUrl}>
-            Join IEEE NTU <Icon name="diagonal" />
+      <div className="container home-join-inner">
+        <h2>Join Us</h2>
+        <p>
+          Interested in technology? Join a workshop, take part in iNTUition, or get involved with
+          our technical projects. Students from across NTU are welcome.
+        </p>
+        <p>
+          Follow us on Instagram for event announcements and opportunities to join our community.
+        </p>
+        <div className="button-row">
+          <a
+            className="button button-primary"
+            href={siteConfig.socialLinks[0].url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="instagram" />
+            Follow IEEE NTU
           </a>
-        )}
+          <TextLink href="/initiatives/">Explore our events</TextLink>
+        </div>
       </div>
     </section>
   );
 }
 
 export function HomePartnerships() {
-  const approved = partners.filter((p) => p.approved);
-  const hasContact = siteConfig.contactEmail || siteConfig.socialLinks.length > 0;
   return (
     <>
       <section id="partners" className="home-partners home-section">
         <div className="container">
-          <div className="home-partners-heading">
-            <div>
-              <Eyebrow>Industry & partnerships</Eyebrow>
-              <h2>Work with our community.</h2>
-              <p>
-                Connect students with industry through hackathons, knowledge sharing and meaningful
-                technical projects.
-              </p>
-            </div>
-            <ButtonLink href="/partnerships/">Partner with IEEE NTU</ButtonLink>
+          <div className="centered-heading">
+            <h2>Our Sponsors & Partners</h2>
+            <p>Supporting student opportunities and connecting our community with industry.</p>
           </div>
-          {approved.length > 0 && (
-            <div className="partner-logos">
-              {approved.map((partner) => (
-                <a key={partner.name} href={partner.url}>
-                  <Image src={asset(partner.logo)} alt={partner.name} width={180} height={80} />
-                </a>
-              ))}
-            </div>
-          )}
+          <PartnerLogos />
+          <div className="section-link">
+            <TextLink href="/partnerships/">Work with IEEE NTU</TextLink>
+          </div>
         </div>
       </section>
-      <Metrics />
-      {hasContact && (
-        <section id="contact" className="container home-contact home-section">
-          <SectionHeading eyebrow="Connect with IEEE NTU" title="Contact us" />
-          <div className="contact-links">
-            {siteConfig.contactEmail && (
-              <a className="text-link" href={`mailto:${siteConfig.contactEmail}`}>
-                <Icon name="mail" />
-                {siteConfig.contactEmail}
-              </a>
-            )}
-            {siteConfig.socialLinks.map((social) => (
-              <a className="text-link" key={social.url} href={social.url}>
-                {social.label}
-                <Icon name="diagonal" />
-              </a>
-            ))}
+      <section id="contact" className="home-contact home-section">
+        <div className="container">
+          <div className="centered-heading">
+            <h2>Contact Us</h2>
+            <p>Get in touch and stay connected with IEEE NTU.</p>
           </div>
-        </section>
-      )}
+          <SocialLinks detailed />
+          <p className="contact-location">Nanyang Technological University · Singapore</p>
+        </div>
+      </section>
     </>
   );
 }
