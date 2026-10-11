@@ -1168,22 +1168,6 @@ main:focus {
     font-size: 14px;
   }
 }
-@media (max-width: 359px) {
-  .site-header-home {
-    background: var(--nav);
-    border-color: var(--border);
-  }
-  .site-header-home .icon-button {
-    color: var(--nav-text);
-    border-color: transparent;
-  }
-  .site-header-home .icon-button:hover {
-    background: var(--primary-soft);
-  }
-  .site-header-home :focus-visible {
-    outline-color: var(--accent);
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -20,11 +20,15 @@ export default function HomePage() {
     <>
       <section id="home" className="home-landing" aria-labelledby="home-title">
         <div className="home-plane" aria-hidden="true" />
-        <div className="container home-heading-wrap">
+        <div className="home-heading-wrap">
           <h1 id="home-title" className="home-title">
             <span className="home-title-ieee">IEEE</span>{' '}
-            <span className="home-title-branch">NTU Student Branch</span>
-            <span className="home-title-university">Nanyang Technological University</span>
+            <span className="home-title-details">
+              <span className="home-title-branch">
+                <span>NTU</span> <span>Student Branch</span>
+              </span>
+              <span className="home-title-university">Nanyang Technological University</span>
+            </span>
           </h1>
         </div>
         <SingaporeSkyline />

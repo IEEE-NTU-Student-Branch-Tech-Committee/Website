@@ -37,7 +37,7 @@ The internal source PDF and its QR codes must stay outside `public/`. Do not add
 
 The light theme follows [IEEE University of Toronto](https://ieee.utoronto.ca/): white, #00639C blue, #DBEAF6 section backgrounds, Roboto Condensed headings/navigation and Source Sans Pro body text. Dark mode uses the supplied deck's #07081A navy, #091A2F secondary surface, #0038FF electric blue and #ADD5E3 accents.
 
-Team portraits are circular, with the role above the name. Photos and plain text replace decorative cards and portfolio geometry. The existing local architectural illustration remains in the homepage opening. The favicon uses the supplied official IEEE diamond.
+Team portraits are circular, with the role above the name. Photos and plain text replace decorative cards and portfolio geometry. The homepage has equal vertical white/blue halves, with IEEE on the left and the branch name and university on the right. The branch-provided pen drawing spans the lower opening, blue on white and white on blue. Its original source marks remain intact; see `docs/architectural-artwork.md` for provenance. The favicon uses the supplied official IEEE diamond.
 
 Tokens are in `src/styles/tokens.css`; responsive components are in `globals.css`; homepage styles are in `landing.css` and `home.css`. Fonts and their OFL licences are in `src/fonts/`, with no external font request at runtime. Theme preference follows the OS until explicitly chosen, persists across reloads, and initialises before paint.
 

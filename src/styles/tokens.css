@@ -16,7 +16,6 @@
   --nav-text: #00639c;
   --hero-background: #00639c;
   --hero-plane: #ffffff;
-  --skyline-stroke: #a3ccdf;
   --events-background: #00639c;
   --footer-background: #00639c;
   --font-sans: var(--font-body), 'Source Sans Pro', Arial, sans-serif;
@@ -43,9 +42,8 @@
   --border-strong: #55657d;
   --nav: #07081a;
   --nav-text: #add5e3;
-  --hero-background: #07081a;
-  --hero-plane: #091a2f;
-  --skyline-stroke: #add5e3;
+  --hero-background: #0038ff;
+  --hero-plane: #ffffff;
   --events-background: #091a2f;
   --footer-background: #091a2f;
 }

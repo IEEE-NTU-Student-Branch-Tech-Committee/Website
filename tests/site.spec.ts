@@ -24,6 +24,18 @@ for (const theme of ['dark', 'light'] as const) {
         await page.evaluate(() => document.fonts.ready);
         await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
         await expect(page.locator('h1')).toHaveCount(1);
+        if (route === '') {
+          const ieee = await page.locator('.home-title-ieee').boundingBox();
+          const details = await page.locator('.home-title-details').boundingBox();
+          const branch = await page.locator('.home-title-branch').boundingBox();
+          const university = await page.locator('.home-title-university').boundingBox();
+          const panorama = await page.locator('.singapore-skyline').boundingBox();
+          expect(ieee!.x + ieee!.width).toBeLessThanOrEqual(width / 2);
+          expect(details!.x).toBeGreaterThanOrEqual(width / 2);
+          expect(university!.y).toBeGreaterThan(branch!.y + branch!.height);
+          expect(panorama!.width).toBe(width);
+          expect(panorama!.x).toBe(0);
+        }
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
         ).toBeTruthy();
@@ -176,7 +188,7 @@ test('Metadata, missing content, reduced motion and 404', async ({ page, request
   expect(robots.status()).toBe(200);
   expect(await robots.text()).toContain(`Sitemap: ${siteConfig.url}/sitemap.xml`);
   expect((await request.get('images/social-card.png')).status()).toBe(200);
-  expect((await request.get('images/ntu-singapore-linework.webp')).status()).toBe(200);
+  expect((await request.get('images/singapore-handdrawn-lineart.jpg')).status()).toBe(200);
   expect((await request.get('favicon.ico')).status()).toBe(200);
   await expect(page.locator('link[rel="icon"][type="image/png"]')).toHaveAttribute(
     'href',
