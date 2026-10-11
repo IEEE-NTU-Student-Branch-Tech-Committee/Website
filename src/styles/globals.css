@@ -315,27 +315,27 @@ main:focus {
   border-color: transparent;
 }
 .site-header-home .icon-button {
-  color: #fff;
+  color: var(--hero-text);
   border-color: rgba(255, 255, 255, 0.6);
 }
 .site-header-home .icon-button:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 .site-header-home .icon-button:focus-visible {
-  outline-color: #fff;
+  outline-color: var(--hero-text);
 }
 @media (min-width: 900px) {
   .site-header-home .nav-links a:nth-child(-n + 3) {
-    color: var(--hero-background);
+    color: var(--hero-left-ink);
   }
   .site-header-home .nav-links a:nth-child(-n + 3):focus-visible {
-    outline-color: var(--hero-background);
+    outline-color: var(--hero-left-ink);
   }
   .site-header-home .nav-links a:nth-child(n + 4) {
-    color: #fff;
+    color: var(--hero-text);
   }
   .site-header-home .nav-links a:nth-child(n + 4):focus-visible {
-    outline-color: #fff;
+    outline-color: var(--hero-text);
   }
 }
 

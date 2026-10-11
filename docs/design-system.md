@@ -26,16 +26,16 @@ Fonts are local WOFF2 files. Roboto Condensed is variable; body weights 400, 600
 | Heading/link accent | #00639C | #ADD5E3 |
 | Main text           | #333333 | #F3F8FB |
 | Secondary text      | #4C4C4C | #BACFDC |
-| Homepage right half | #00639C | #0038FF |
-| Homepage left half  | #FFFFFF | #FFFFFF |
-| Line on white       | #00639C | #0038FF |
-| Line on blue        | #FFFFFF | #FFFFFF |
+| Homepage right half | #00639C | #091A2F |
+| Homepage left half  | #FFFFFF | #07081A |
+| Left linework       | #00639C | #ADD5E3 |
+| Right linework      | #FFFFFF | #F3F8FB |
 
-The dark values are from the supplied deck, including its vector electric blue. The light blue and pale background match the inspected reference. The events band uses the deeper primary blue for legible white body text.
+The dark values are from the supplied deck, including its vector electric blue for primary controls. The dark homepage uses the same navy background and secondary surface as the other pages; the IEEE masterbrand is white, headings and navigation are ice blue, and the university name uses the shared secondary text colour. The light blue and pale background match the inspected reference. The events band uses the deeper primary blue for legible white body text.
 
 ## Page formats
 
-The homepage opens with equal vertical white and blue halves. The official IEEE masterbrand, including its diamond and lettering, is centred in the left half at a reduced size; NTU Student Branch is centred in the right, with Nanyang Technological University directly below. A newly drawn SVG panorama spans the full width of the lower opening, blue on white and white on blue, with slightly heavier pen-style lines. It replaces the stock-preview JPEG and contains no bitmap or watermark. On phones, NTU and Student Branch occupy two lines within the right half. The opening is followed by an introduction with a real photograph, community figures, a full blue initiative section, a team preview, a pale participation section, a complete logo grid and a blue contact/footer area.
+In light mode, the homepage opens with equal vertical white and blue halves. The official IEEE masterbrand, including its diamond and lettering, is centred in the left half at a reduced size; NTU Student Branch is centred in the right, with Nanyang Technological University directly below. A newly drawn SVG panorama spans the full width of the lower opening, blue on white and white on blue, with slightly heavier pen-style lines. It replaces the stock-preview JPEG and contains no bitmap or watermark. On phones, NTU and Student Branch occupy two lines within the right half. The opening is followed by an introduction with a real photograph, community figures, a full blue initiative section, a team preview, a pale participation section, a complete logo grid and a blue contact/footer area.
 
 Dedicated pages have centred titles, short introductions, plain text sections and real photographs. The team directory groups all 13 people by leadership and committee, using circular portraits with the role above the name. Filters and team jump links use underlined text rather than rounded pill controls.
 
@@ -45,7 +45,7 @@ The content container is 1200px, gutters 22–64px and section spacing 64–88px
 
 ## Navigation and accessibility
 
-The small header logo is removed on all routes. Desktop navigation fills the available width in six equal columns, with the theme control on the right. The opening header continues the white/blue division; the first three links are blue on white and the last three are white on blue. It becomes opaque on scroll, with a mobile menu below 900px. Wide, short windows allow the opening to grow enough to keep the identity and title clear of the panorama. Escape closes the menu and returns focus; outside click closes it.
+The small header logo is removed on all routes. Desktop navigation fills the available width in six equal columns, with the theme control on the right. The opening header continues the white/blue division; the first three links are blue on white and the last three are white on blue in light mode, while all six use the shared ice-blue navigation colour in dark mode. It becomes opaque on scroll, with a mobile menu below 900px. Wide, short windows allow the opening to grow enough to keep the identity and title clear of the panorama. Escape closes the menu and returns focus; outside click closes it.
 
 The theme follows the OS before an explicit preference, persists a choice, and initialises before first paint. Keyboard focus is visible, controls use 44px targets, images have descriptive alternative text and decorative linework is hidden from assistive technology. Reduced motion disables transitions and smooth scrolling. There is no continuous animation.
 

@@ -17,8 +17,8 @@ export function SingaporeSkyline() {
         </mask>
       </defs>
       <g mask="url(#city-linework)">
-        <rect width="472" height="288" fill="var(--hero-background)" />
-        <rect x="472" width="472" height="288" fill="#fff" />
+        <rect width="472" height="288" fill="var(--hero-left-ink)" />
+        <rect x="472" width="472" height="288" fill="var(--hero-right-ink)" />
       </g>
     </svg>
   );

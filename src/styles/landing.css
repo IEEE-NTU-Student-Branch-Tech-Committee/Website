@@ -6,7 +6,7 @@
   min-height: max(680px, 100svh, 50vw);
   margin-top: calc(-1 * var(--header-height));
   background: var(--hero-background);
-  color: #fff;
+  color: var(--hero-text);
 }
 .home-plane {
   position: absolute;
@@ -28,7 +28,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   width: 100%;
-  color: #fff;
+  color: var(--hero-text);
   text-align: center;
 }
 .home-title-ieee {
@@ -60,6 +60,7 @@
 }
 .home-title-university {
   display: block;
+  color: var(--hero-subtext);
   font-family: var(--font-sans);
   font-size: clamp(16px, 1.4vw, 23px);
   font-weight: 400;
@@ -86,7 +87,7 @@
   place-items: center;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #fff;
+  color: var(--hero-text);
   font-size: 24px;
   z-index: 3;
 }
@@ -94,10 +95,17 @@
   background: rgba(255, 255, 255, 0.14);
 }
 .home-scroll:focus-visible {
-  outline-color: #fff;
+  outline-color: var(--hero-text);
 }
 .site-header-home {
   background: linear-gradient(to right, var(--hero-plane) 0 50%, var(--hero-background) 50% 100%);
+}
+:root[data-theme='dark'] .home-title-logo {
+  filter: none;
+}
+:root[data-theme='dark'] .site-header-home .icon-button,
+:root[data-theme='dark'] .home-scroll {
+  border-color: var(--border-strong);
 }
 @media (max-width: 599px) {
   .home-landing {

@@ -16,6 +16,10 @@
   --nav-text: #00639c;
   --hero-background: #00639c;
   --hero-plane: #ffffff;
+  --hero-text: #ffffff;
+  --hero-subtext: #ffffff;
+  --hero-left-ink: #00639c;
+  --hero-right-ink: #ffffff;
   --events-background: #00639c;
   --footer-background: #00639c;
   --font-sans: var(--font-body), 'Source Sans Pro', Arial, sans-serif;
@@ -42,8 +46,12 @@
   --border-strong: #55657d;
   --nav: #07081a;
   --nav-text: #add5e3;
-  --hero-background: #0038ff;
-  --hero-plane: #ffffff;
+  --hero-background: #091a2f;
+  --hero-plane: #07081a;
+  --hero-text: #add5e3;
+  --hero-subtext: #bacfdc;
+  --hero-left-ink: #add5e3;
+  --hero-right-ink: #f3f8fb;
   --events-background: #091a2f;
   --footer-background: #091a2f;
 }
