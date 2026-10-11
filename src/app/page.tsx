@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { SingaporeSkyline } from '@/components/singapore-skyline';
-import { siteConfig } from '@/data/site';
+import { asset, siteConfig } from '@/data/site';
 import { Metrics } from '@/components/metrics';
 import {
   HomeAbout,
@@ -22,7 +23,17 @@ export default function HomePage() {
         <div className="home-plane" aria-hidden="true" />
         <div className="home-heading-wrap">
           <h1 id="home-title" className="home-title">
-            <span className="home-title-ieee">IEEE</span>{' '}
+            <span className="home-title-ieee">
+              <Image
+                className="home-title-logo"
+                src={asset('/images/ieee-white.png')}
+                width={749}
+                height={218}
+                alt=""
+                priority
+              />
+              <span className="sr-only">IEEE</span>
+            </span>{' '}
             <span className="home-title-details">
               <span className="home-title-branch">
                 <span>NTU</span> <span>Student Branch</span>

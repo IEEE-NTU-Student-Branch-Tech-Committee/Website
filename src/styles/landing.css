@@ -32,14 +32,16 @@
   text-align: center;
 }
 .home-title-ieee {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-inline: 16px;
-  color: var(--hero-background);
-  font-family: var(--font-title);
-  font-size: clamp(68px, 17vw, 260px);
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0;
+}
+.home-title-logo {
+  width: min(90%, 390px);
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(25%) sepia(85%) saturate(1289%) hue-rotate(167deg)
+    brightness(92%) contrast(100%);
 }
 .home-title-details {
   display: block;
@@ -94,32 +96,12 @@
 .home-scroll:focus-visible {
   outline-color: #fff;
 }
-@media (min-width: 1200px) {
-  .site-header-home .nav-links {
-    gap: 20px;
-  }
-}
-@media (min-width: 1200px), (max-width: 899px) {
-  .site-header-home {
-    background: linear-gradient(to right, var(--hero-plane) 0 50%, var(--hero-background) 50% 100%);
-  }
-  .site-header-home .brand {
-    color: #00639c;
-  }
-  .site-header-home .brand-divider {
-    background: #a0b4c3;
-  }
-  :root[data-theme='dark'] .site-header-home .brand-mark img {
-    filter: brightness(0) saturate(100%) invert(25%) sepia(85%) saturate(1289%) hue-rotate(167deg)
-      brightness(92%) contrast(100%);
-  }
+.site-header-home {
+  background: linear-gradient(to right, var(--hero-plane) 0 50%, var(--hero-background) 50% 100%);
 }
 @media (max-width: 599px) {
   .home-landing {
     min-height: clamp(600px, 100svh, 720px);
-  }
-  .home-title-ieee {
-    font-size: clamp(68px, 22vw, 132px);
   }
   .home-title-branch {
     font-size: clamp(18px, 5.2vw, 28px);
@@ -131,9 +113,5 @@
   .home-title-university {
     font-size: clamp(13px, 2.9vw, 17px);
     margin-top: 14px;
-  }
-  .site-header-home .brand-divider,
-  .site-header-home .brand-name {
-    display: none;
   }
 }

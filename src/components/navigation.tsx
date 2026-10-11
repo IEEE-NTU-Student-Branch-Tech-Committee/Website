@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { navigation } from '@/data/site';
-import { Brand } from './brand';
 import { ThemeToggle } from './theme-toggle';
 import { Icon } from './icon';
 
@@ -62,7 +61,6 @@ export function Navigation() {
       ref={header}
     >
       <div className="nav-inner container">
-        <Brand />
         <nav
           id="main-navigation"
           aria-label="Main navigation"

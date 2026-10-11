@@ -35,6 +35,15 @@ for (const theme of ['dark', 'light'] as const) {
           expect(university!.y).toBeGreaterThan(branch!.y + branch!.height);
           expect(panorama!.width).toBe(width);
           expect(panorama!.x).toBe(0);
+          await expect(page.locator('header .brand')).toHaveCount(0);
+          await expect(page.locator('.home-title-logo')).toHaveAttribute(
+            'src',
+            /\/images\/ieee-white\.png$/,
+          );
+          await expect(page.locator('.singapore-skyline image')).toHaveAttribute(
+            'href',
+            /\/images\/singapore-pen-lineart\.svg$/,
+          );
         }
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
@@ -188,7 +197,9 @@ test('Metadata, missing content, reduced motion and 404', async ({ page, request
   expect(robots.status()).toBe(200);
   expect(await robots.text()).toContain(`Sitemap: ${siteConfig.url}/sitemap.xml`);
   expect((await request.get('images/social-card.png')).status()).toBe(200);
-  expect((await request.get('images/singapore-handdrawn-lineart.jpg')).status()).toBe(200);
+  const skyline = await request.get('images/singapore-pen-lineart.svg');
+  expect(skyline.status()).toBe(200);
+  expect(await skyline.text()).not.toMatch(/Adobe|Stock|<image|data:image/i);
   expect((await request.get('favicon.ico')).status()).toBe(200);
   await expect(page.locator('link[rel="icon"][type="image/png"]')).toHaveAttribute(
     'href',

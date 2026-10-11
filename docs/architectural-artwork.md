@@ -1,13 +1,13 @@
 # Homepage architectural drawing
 
-Current website asset: `public/images/singapore-handdrawn-lineart.jpg` (944 × 288px, 37,215 bytes), supplied by the branch as `lineart.jpg`. The public copy is byte-for-byte identical to the original. Ordinary builds use the checked-in asset and do not need the source file.
+Current artwork: `public/images/singapore-pen-lineart.svg` (944 × 288 viewBox). It is a manually authored vector drawing, using transparent unfilled paths with round caps and joins and a 2.9-unit stroke. It uses the branch's requested waterfront composition and pen-drawing treatment: Esplanade roof shells, Singapore Flyer, three Marina Bay Sands towers and their SkyPark, Supertrees and ArtScience Museum.
 
-The homepage has an exact vertical 50/50 split, white on the left and blue on the right. A single SVG places the entire drawing across its full width. The left portion of its ink is blue and the right portion is white; the image and background colour boundaries both fall at the viewport centre.
+The SVG replaces the previous stock-preview JPEG. It contains no embedded raster image, watermark, external dependency or image filter. The original branch-supplied `lineart.jpg` remains untouched outside the public assets; the old public JPEG is removed.
 
-The source has black and grey ink on opaque white paper. An SVG colour matrix converts paper luminance to alpha, keeping every grey ink tone, and a 0.45px dilation slightly strengthens the strokes. Two coloured rectangles use the resulting alpha mask. No raster rewriting, threshold cleanup, tracing or generative image editing is performed.
+The homepage preserves its vertical white/blue 50/50 split. A single SVG image supplies a transparent alpha mask. Two rectangles colour the drawn lines blue on the left and white on the right, with the colour boundary exactly at the viewport centre. The vector image stays sharp at every size and spans the full width of the lower opening.
 
-The supplied JPEG contains repeated Adobe Stock watermarks, which remain in the rendering. Use an authorised watermark-free source for a final clean presentation; do not remove source ownership marks in this rendering pipeline.
+The IEEE identity in the upper left half uses the supplied official masterbrand image, including its diamond symbol and lettering. It retains its proportions, has a 390px maximum display width and ample clear space. The heading retains the IEEE name for assistive technology. The small header lockup is removed; the footer identity remains.
 
-The drawing is decorative and hidden from assistive technology. It has no animation, maintains its aspect ratio, and remains full width on desktop and mobile. Wide, short windows give the opening enough height to keep its title separate from the landmark ink.
+Desktop navigation uses six equal columns across the content width, followed by the theme control. The first three homepage links use blue text on white, and the last three use white text on blue. Mobile navigation remains a menu, with normal dropdown theme colours.
 
-The older generated `ntu-singapore-linework.webp` remains an unused historical asset and is no longer requested by the homepage.
+The architectural drawing is decorative, hidden from assistive technology and has no animation. Wide, short windows give the opening enough height to keep the identity and branch name separate from the landmark ink. Ordinary builds use the checked-in SVG and require no PDF, source JPEG or external image service.

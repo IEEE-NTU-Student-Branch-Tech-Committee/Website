@@ -4,14 +4,6 @@ export function SingaporeSkyline() {
   return (
     <svg className="singapore-skyline" viewBox="0 0 944 288" aria-hidden="true" focusable="false">
       <defs>
-        <filter id="city-ink" colorInterpolationFilters="sRGB">
-          {/* Paper becomes transparent; every ink tone, including source marks, remains. */}
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -0.2126 -0.7152 -0.0722 1 0"
-          />
-          <feMorphology operator="dilate" radius="0.45" />
-        </filter>
         <mask
           id="city-linework"
           maskUnits="userSpaceOnUse"
@@ -21,12 +13,7 @@ export function SingaporeSkyline() {
           height="288"
           style={{ maskType: 'alpha' }}
         >
-          <image
-            href={asset('/images/singapore-handdrawn-lineart.jpg')}
-            width="944"
-            height="288"
-            filter="url(#city-ink)"
-          />
+          <image href={asset('/images/singapore-pen-lineart.svg')} width="944" height="288" />
         </mask>
       </defs>
       <g mask="url(#city-linework)">

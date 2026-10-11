@@ -1,4 +1,4 @@
-# Release QA — 7 October 2026
+# Release QA — 11 October 2026
 
 ## Final checks
 
@@ -24,8 +24,8 @@ Additional browser review covers seven boundary widths (320, 360, 899, 900, 1199
 
 Refinements from review:
 
-- Opaque navigation at intermediate desktop widths prevents white links from crossing the white homepage plane.
-- The opening header shows the IEEE mark on the white mobile half, with the full branch name retained in its accessible label.
+- Six equally sized navigation columns distribute links across the header; homepage text uses blue on white and white on blue.
+- The small header logo is removed. The homepage identity uses the official IEEE masterbrand, including its diamond, with the branch name retained in the accessible heading.
 - Short desktop windows use adjusted title/illustration spacing.
 - IEEE Day uses a campus image; the general community photo is not attributed to an unverified event.
 - Favicon cropping preserves the full supplied diamond and removes its faint export boundary.
@@ -35,7 +35,7 @@ Matrix screenshots and the Playwright report are in ignored `test-results/` and 
 
 The updated event and contact section screenshots are in ignored `tmp/event-update-review/`. The email sits with the branch identity in the footer so it has adequate width on small screens.
 
-The new homepage opening is checked at 12 viewport sizes in both themes, including widths immediately around the 900px and 1200px header boundaries, a 1366×768 laptop and a short 1920×600 window. Its fields split exactly at 50%, IEEE remains wholly in the left field, the branch name and university remain in the right field, and the panorama spans the full width with no title/landmark overlap. The public JPEG matches the branch's original SHA-256 hash. Screenshots and geometry are in ignored `tmp/home-split-review/`. Phone openings are capped at 720px to keep the small panorama and text from being separated by excessive empty space.
+The new homepage opening is checked at 12 viewport sizes in both themes, including widths immediately around the mobile menu breakpoint, a 1366×768 laptop and a short 1920×600 window. Its fields split exactly at 50%, the reduced official IEEE logo remains wholly in the left field, the branch name and university remain in the right field, and the panorama spans the full width with no title/landmark overlap. The header has no logo and its six desktop menu columns have equal widths; the actual text bounds fall within their respective background halves. The new SVG contains only vector linework and no stock-preview bitmap or watermark. Screenshots and geometry are in ignored `tmp/home-split-review/`. Phone openings are capped at 720px to keep the small panorama and text from being separated by excessive empty space.
 
 ## Build and deployment
 
